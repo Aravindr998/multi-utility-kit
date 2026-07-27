@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Self-hosted vendor bundle (minified ffmpeg core) — not our source.
+    "public/**",
+    // Standalone backend service has its own package/runtime.
+    "server/**",
   ]),
 ]);
 

@@ -1,26 +1,229 @@
 @import "tailwindcss";
 
+/* ---------- Design tokens ---------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --surface-2: #f1f5f9;
+  --foreground: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --brand: #4f46e5;
+  --brand-hover: #4338ca;
+  --brand-soft: #eef2ff;
+  --accent: #0ea5e9;
+  --success: #16a34a;
+  --danger: #dc2626;
+  --ring: rgba(79, 70, 229, 0.35);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0b1120;
+    --surface: #111827;
+    --surface-2: #1e293b;
+    --foreground: #e5e7eb;
+    --muted: #94a3b8;
+    --border: #1f2937;
+    --brand: #818cf8;
+    --brand-hover: #a5b4fc;
+    --brand-soft: #1e1b4b;
+    --accent: #38bdf8;
+    --success: #4ade80;
+    --danger: #f87171;
+    --ring: rgba(129, 140, 248, 0.4);
   }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-soft: var(--brand-soft);
+  --color-accent: var(--accent);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+* {
+  border-color: var(--border);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+/* Utility component classes */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    background: var(--brand);
+    color: #fff;
+  }
+  .btn-primary:hover:not(:disabled) {
+    background: var(--brand-hover);
+  }
+  .btn-secondary {
+    background: var(--surface-2);
+    color: var(--foreground);
+    border: 1px solid var(--border);
+  }
+  .btn-secondary:hover:not(:disabled) {
+    border-color: var(--brand);
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    @apply rounded-xl;
+  }
+  .input {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--foreground);
+    @apply w-full rounded-lg px-3 py-2.5 text-sm transition-colors;
+  }
+  .input:focus {
+    border-color: var(--brand);
+    box-shadow: 0 0 0 3px var(--ring);
+    outline: none;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-medium;
+    color: var(--muted);
+  }
+}
+
+/* ---------- Accordion (smooth open/close) ---------- */
+/* Lets `block-size: auto` animate instead of snapping. */
+@supports (interpolate-size: allow-keywords) {
+  :root {
+    interpolate-size: allow-keywords;
+  }
+}
+
+.accordion > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  list-style: none;
+}
+.accordion > summary::-webkit-details-marker {
+  display: none;
+}
+/* Chevron that rotates on open */
+.accordion > summary::after {
+  content: "";
+  width: 0.55rem;
+  height: 0.55rem;
+  flex-shrink: 0;
+  border-right: 2px solid var(--muted);
+  border-bottom: 2px solid var(--muted);
+  transform: rotate(45deg);
+  transition: transform 0.28s ease;
+}
+.accordion[open] > summary::after {
+  transform: rotate(-135deg);
+}
+
+/* Height animation for the content region */
+.accordion::details-content {
+  block-size: 0;
+  overflow: hidden;
+  transition: block-size 0.28s ease, content-visibility 0.28s ease allow-discrete;
+}
+.accordion[open]::details-content {
+  block-size: auto;
+}
+
+/* ---------- Date picker (react-day-picker) theming ---------- */
+.rdp-root {
+  --rdp-accent-color: var(--brand);
+  --rdp-accent-background-color: var(--brand-soft);
+  --rdp-today-color: var(--brand);
+  --rdp-day-width: 2.4rem;
+  --rdp-day-height: 2.4rem;
+  --rdp-outside-opacity: 0.4;
+  --rdp-disabled-opacity: 0.3;
+  margin: 0;
+  color: var(--foreground);
+  font-size: 0.9rem;
+}
+.rdp-month_caption {
+  font-weight: 600;
+}
+.rdp-caption_label {
+  color: var(--foreground);
+}
+.rdp-weekday {
+  color: var(--muted);
+  font-weight: 500;
+}
+.rdp-chevron {
+  fill: var(--foreground);
+}
+.rdp-button_previous:hover,
+.rdp-button_next:hover {
+  background: var(--surface-2);
+  border-radius: 8px;
+}
+/* Month / year dropdowns */
+.rdp-dropdown_root {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-2);
+  padding: 0.15rem 0.4rem;
+}
+.rdp-dropdown_root:hover {
+  border-color: var(--brand);
+}
+.rdp-dropdown {
+  color: var(--foreground);
+  cursor: pointer;
+}
+.rdp-dropdown option {
+  background: var(--surface);
+  color: var(--foreground);
+}
+/* Days */
+.rdp-day_button {
+  border-radius: 8px;
+}
+.rdp-day_button:hover:not([disabled]) {
+  background: var(--surface-2);
+}
+.rdp-today:not(.rdp-selected) .rdp-day_button {
+  color: var(--brand);
+  font-weight: 700;
+}
+.rdp-selected .rdp-day_button {
+  color: #fff;
+  border: none;
+  font-weight: 600;
+}
+
+.scroll-thin::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.scroll-thin::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
 }
