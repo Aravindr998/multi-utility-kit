@@ -403,6 +403,114 @@ export const TOOLS: Tool[] = [
     privacyNote: PRIVACY_CLIENT,
     available: true,
   },
+  {
+    slug: "text-diff",
+    name: "Text Diff Checker",
+    h1: "Free Text & Code Diff Checker",
+    title: "Text Diff Checker – Compare & Merge Text Online | UtilityHub",
+    description:
+      "Compare two blocks of text or code and see a Git-style line-by-line diff. Accept changes from either side, line by line, and copy the merged result. 100% private, in-browser.",
+    cardDescription: "Compare text & code with a Git-style diff and merge.",
+    category: "text-tools",
+    keywords: ["text diff", "diff checker", "compare text", "code diff", "text compare", "merge text"],
+    icon: "🔀",
+    intro:
+      "Paste your original text on the left and the changed version on the right to see exactly what was added, removed or kept — coloured like a Git diff. You can accept any change into either side, line by line, to build a merged result, then copy it out. Everything runs locally in your browser, so your text is never uploaded.",
+    howTo: [
+      "Paste the original text and the changed text into the two boxes.",
+      "Review the highlighted additions (green) and deletions (red).",
+      "Use the arrow buttons on each change to accept it into the original or the changed side.",
+      "Copy the original or changed text once you're happy with the merge.",
+    ],
+    faqs: [
+      {
+        q: "Can I compare source code?",
+        a: "Yes. The diff works line by line, so it's ideal for comparing code, config files, JSON, prose or any plain text.",
+      },
+      {
+        q: "How do I merge changes?",
+        a: "Each differing block has two arrows: one applies the changed side's version into the original, the other applies the original into the changed side. Repeat until both sides match.",
+      },
+      {
+        q: "Is my text uploaded anywhere?",
+        a: "No. The comparison happens entirely in your browser and nothing is sent to a server.",
+      },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "text-formatter",
+    name: "Text Formatter",
+    h1: "Free Rich Text Formatter",
+    title: "Text Formatter – Online Rich Text Editor | UtilityHub",
+    description:
+      "A free mini word processor in your browser. Apply bold, italic, underline, headings, text colours and highlights, then copy the styled text or export it. Private and in-browser.",
+    cardDescription: "Style text with bold, headings, colours & highlights.",
+    category: "text-tools",
+    keywords: ["text formatter", "rich text editor", "online word processor", "text highlighter", "bold italic underline"],
+    icon: "✨",
+    intro:
+      "Format text like you would in a word processor — apply bold, italic and underline, add titles and subtitles, and pick text colours and highlights. Paste rich text and copy it back out with the formatting intact, or export it as an HTML file. It all runs locally in your browser, so nothing is uploaded.",
+    howTo: [
+      "Type or paste your text into the editor.",
+      "Select some text and use the toolbar to apply formatting.",
+      "Pick a text colour or highlight colour for the selection.",
+      "Copy the formatted text or download it as an HTML file.",
+    ],
+    faqs: [
+      {
+        q: "Will the formatting carry over when I paste elsewhere?",
+        a: "Yes. Copying preserves rich formatting, so pasting into Word, Google Docs or email keeps your styles. You can also copy the underlying HTML.",
+      },
+      {
+        q: "Can I add headings?",
+        a: "Yes — the Title and Subtitle buttons turn the current line into a heading, and Normal turns it back into body text.",
+      },
+      {
+        q: "Is my text private?",
+        a: "Yes. The editor runs in your browser and your text is never uploaded.",
+      },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "markdown-editor",
+    name: "Markdown Editor",
+    h1: "Free Markdown Editor with Live Preview",
+    title: "Markdown Editor – Live Preview Online | UtilityHub",
+    description:
+      "Write Markdown and see a live HTML preview side by side. Supports headings, bold, lists, links, tables, code blocks and more. Copy the HTML or download the Markdown. Private, in-browser.",
+    cardDescription: "Write Markdown with an instant side-by-side preview.",
+    category: "text-tools",
+    keywords: ["markdown editor", "markdown preview", "md editor", "markdown to html", "live markdown"],
+    icon: "📝",
+    intro:
+      "Write Markdown on the left and watch a formatted preview update instantly on the right. Supports headings, bold and italic, links, images, blockquotes, ordered and unordered lists, tables, inline code and fenced code blocks. Copy the rendered HTML, copy the Markdown, or download a .md file. Everything runs in your browser.",
+    howTo: [
+      "Type or paste Markdown into the editor on the left.",
+      "See the live preview render on the right as you type.",
+      "Use the toolbar to quickly insert bold, headings, links and lists.",
+      "Copy the HTML output or download your Markdown file.",
+    ],
+    faqs: [
+      {
+        q: "Which Markdown features are supported?",
+        a: "Headings, bold, italic, strikethrough, inline and fenced code, blockquotes, ordered and unordered lists, links, images, horizontal rules and simple tables.",
+      },
+      {
+        q: "Can I get the HTML out?",
+        a: "Yes. Use the Copy HTML button to copy the rendered markup, or Copy Markdown / Download to keep the source.",
+      },
+      {
+        q: "Is my document uploaded?",
+        a: "No. The editor and preview run entirely in your browser; nothing is sent anywhere.",
+      },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
   // ------------------------------- GENERATORS -------------------------------
   {
     slug: "qr-code-generator",
