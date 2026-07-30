@@ -511,6 +511,47 @@ export const TOOLS: Tool[] = [
     privacyNote: PRIVACY_CLIENT,
     available: true,
   },
+  {
+    slug: "notes",
+    name: "Notes App",
+    h1: "Free Online Notes App",
+    title: "Notes App – Free Rich-Text Note Taking Online | UtilityHub",
+    description:
+      "A free note-taking app that saves your notes privately in your browser. Write rich-text notes with checklists, bold, italic, underline, adjustable font sizes and clickable links. Auto-saves as you type.",
+    cardDescription: "Take rich-text notes with checklists — saved in your browser.",
+    category: "text-tools",
+    keywords: ["notes app", "online notepad", "note taking", "checklist notes", "rich text notes", "save notes browser"],
+    icon: "🗒️",
+    intro:
+      "A private, no-login notes app that lives entirely in your browser. Create as many notes as you like, each with a bold title and a rich-text body. Add checklists, bold/italic/underline, change the font size for parts of your note, and paste links that become clickable. Your notes are saved automatically to your browser's local storage — nothing is ever uploaded, and everything is right where you left it next time.",
+    howTo: [
+      "Click New note to open a blank note.",
+      "Give it a title (shown large and bold) and start writing the body.",
+      "Use the toolbar for checklists, bold/italic/underline, font size and more.",
+      "Your note auto-saves as you type — switch views (list, small or large icons) to browse them all.",
+    ],
+    faqs: [
+      {
+        q: "Where are my notes stored?",
+        a: "Notes are saved in your browser's local storage on this device. They aren't uploaded anywhere, so they stay private — but they also won't sync to other devices or browsers, and clearing your browser data will remove them.",
+      },
+      {
+        q: "How do checklists work?",
+        a: "Click the checklist button in the toolbar and the current line becomes a to-do item. Press Enter to add more items; click a checkbox to tick it off. Press Backspace on an empty item to leave the checklist.",
+      },
+      {
+        q: "Can I open links in my notes?",
+        a: "Yes. Any URL you type is automatically underlined and coloured as a link. Ctrl+click (or Cmd+click on Mac) opens it in a new tab.",
+      },
+      {
+        q: "Do my notes save automatically?",
+        a: "Yes. Every change auto-saves, and each note in the list shows when it was last saved.",
+      },
+    ],
+    privacyNote:
+      "This notes app runs entirely in your browser. Your notes are saved only to this device's local storage and are never uploaded to any server.",
+    available: true,
+  },
   // ------------------------------- GENERATORS -------------------------------
   {
     slug: "qr-code-generator",

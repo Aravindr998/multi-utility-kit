@@ -28,6 +28,7 @@ const COMPONENTS: Record<string, ComponentType> = {
   "text-diff": dynamic(() => import("./TextDiff"), { ssr: false, loading: Loading }),
   "text-formatter": dynamic(() => import("./TextFormatter"), { ssr: false, loading: Loading }),
   "markdown-editor": dynamic(() => import("./MarkdownEditor"), { ssr: false, loading: Loading }),
+  "notes": dynamic(() => import("./NotesApp"), { ssr: false, loading: Loading }),
   "qr-code-generator": dynamic(() => import("./QrCodeGenerator"), { ssr: false, loading: Loading }),
   "unit-converter": dynamic(() => import("./UnitConverter"), { ssr: false, loading: Loading }),
   "percentage-calculator": dynamic(() => import("./PercentageCalculator"), { ssr: false, loading: Loading }),
