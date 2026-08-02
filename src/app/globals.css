@@ -1,37 +1,108 @@
 @import "tailwindcss";
 
-/* ---------- Design tokens ---------- */
+/* ===========================================================================
+   UtilityHub design system — "Notion" theme
+   Warm paper + near-black in light, deep charcoal + near-white in dark.
+   Accent is monochrome; success/danger stay semantic.
+   Dark mode is class-based (.dark) with a system-preference fallback.
+   =========================================================================== */
+
 :root {
-  --background: #f8fafc;
-  --surface: #ffffff;
-  --surface-2: #f1f5f9;
-  --foreground: #0f172a;
-  --muted: #64748b;
-  --border: #e2e8f0;
-  --brand: #4f46e5;
-  --brand-hover: #4338ca;
-  --brand-soft: #eef2ff;
-  --accent: #0ea5e9;
-  --success: #16a34a;
-  --danger: #dc2626;
-  --ring: rgba(79, 70, 229, 0.35);
+  /* Surfaces */
+  --background: #f6f3ee;   /* page — warm paper */
+  --surface: #fcf9f4;      /* cards — lifts subtly on the page */
+  --surface-2: #eee9e1;    /* raised: hover, inputs, stat cells, code */
+  --surface-3: #f1ede6;    /* soft featured/section tint */
+
+  /* Text */
+  --foreground: #21201a;
+  --muted: #5c5a50;        /* secondary text */
+  --faint: #8b897e;        /* tertiary / meta */
+
+  /* Lines */
+  --border: #e7e3da;
+  --border-strong: #cfc9bd;
+
+  /* Accent (monochrome) */
+  --brand: #21201a;
+  --brand-hover: #38362d;
+  --brand-soft: #ece7dd;   /* icon chips, soft pills */
+  --on-brand: #ffffff;     /* text/icons on --brand */
+
+  /* Semantic */
+  --accent: #21201a;
+  --success: #2f8a56;
+  --danger: #c0392b;
+  --warning: #b7791f;
+
+  /* Effects */
+  --ring: rgba(33, 32, 26, 0.22);
+  --shadow-sm: 0 1px 2px 0 rgba(33, 32, 26, 0.05);
+  --shadow-md: 0 1px 3px 0 rgba(33, 32, 26, 0.06), 0 8px 24px -8px rgba(33, 32, 26, 0.12);
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 16px;
+
+  color-scheme: light;
 }
 
+/* --- Dark tokens (shared between explicit .dark and system fallback) ------ */
+.dark {
+  --background: #131313;
+  --surface: #1a1a19;
+  --surface-2: #262523;
+  --surface-3: #1c1b1b;
+
+  --foreground: #f2f0ec;
+  --muted: #b4b6b6;
+  --faint: #8e9192;
+
+  --border: #2e2e2c;
+  --border-strong: #444748;
+
+  --brand: #f2f0ec;
+  --brand-hover: #ffffff;
+  --brand-soft: #2e2d2b;
+  --on-brand: #22211c;
+
+  --accent: #f2f0ec;
+  --success: #5fd08a;
+  --danger: #f1746a;
+  --warning: #e0b050;
+
+  --ring: rgba(242, 240, 236, 0.26);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 12px 32px -8px rgba(0, 0, 0, 0.6);
+
+  color-scheme: dark;
+}
+
+/* No-JS fallback: follow the OS unless the user forced light. */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0b1120;
-    --surface: #111827;
-    --surface-2: #1e293b;
-    --foreground: #e5e7eb;
-    --muted: #94a3b8;
-    --border: #1f2937;
-    --brand: #818cf8;
-    --brand-hover: #a5b4fc;
-    --brand-soft: #1e1b4b;
-    --accent: #38bdf8;
-    --success: #4ade80;
-    --danger: #f87171;
-    --ring: rgba(129, 140, 248, 0.4);
+  :root:not(.light):not(.dark) {
+    --background: #131313;
+    --surface: #1a1a19;
+    --surface-2: #262523;
+    --surface-3: #1c1b1b;
+    --foreground: #f2f0ec;
+    --muted: #b4b6b6;
+    --faint: #8e9192;
+    --border: #2e2e2c;
+    --border-strong: #444748;
+    --brand: #f2f0ec;
+    --brand-hover: #ffffff;
+    --brand-soft: #2e2d2b;
+    --on-brand: #22211c;
+    --accent: #f2f0ec;
+    --success: #5fd08a;
+    --danger: #f1746a;
+    --warning: #e0b050;
+    --ring: rgba(242, 240, 236, 0.26);
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 1px 3px 0 rgba(0, 0, 0, 0.4), 0 12px 32px -8px rgba(0, 0, 0, 0.6);
+    color-scheme: dark;
   }
 }
 
@@ -39,16 +110,21 @@
   --color-background: var(--background);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
+  --color-faint: var(--faint);
   --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
   --color-brand: var(--brand);
   --color-brand-hover: var(--brand-hover);
   --color-brand-soft: var(--brand-soft);
+  --color-on-brand: var(--on-brand);
   --color-accent: var(--accent);
   --color-success: var(--success);
   --color-danger: var(--danger);
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --color-warning: var(--warning);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
@@ -56,11 +132,20 @@
   border-color: var(--border);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--brand) 18%, transparent);
 }
 
 :focus-visible {
@@ -68,36 +153,69 @@ body {
   outline-offset: 2px;
 }
 
-/* Utility component classes */
+/* Colors/backgrounds ease when the theme flips (kept off transforms/opacity). */
+a,
+button,
+.btn,
+.card,
+.input,
+.chip {
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
+}
+
+/* ---------- Utility component classes ---------- */
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium disabled:cursor-not-allowed disabled:opacity-50;
+    border-radius: var(--radius-sm);
+  }
+  .btn:active:not(:disabled) {
+    transform: translateY(0.5px);
   }
   .btn-primary {
     background: var(--brand);
-    color: #fff;
+    color: var(--on-brand);
   }
   .btn-primary:hover:not(:disabled) {
     background: var(--brand-hover);
   }
   .btn-secondary {
-    background: var(--surface-2);
+    background: var(--surface);
     color: var(--foreground);
-    border: 1px solid var(--border);
+    border: 1px solid var(--border-strong);
   }
   .btn-secondary:hover:not(:disabled) {
-    border-color: var(--brand);
+    background: var(--surface-2);
   }
+  .btn-ghost {
+    background: transparent;
+    color: var(--muted);
+  }
+  .btn-ghost:hover:not(:disabled) {
+    background: var(--surface-2);
+    color: var(--foreground);
+  }
+
   .card {
     background: var(--surface);
     border: 1px solid var(--border);
-    @apply rounded-xl;
+    border-radius: var(--radius);
   }
+
   .input {
     background: var(--surface);
-    border: 1px solid var(--border);
+    border: 1px solid var(--border-strong);
     color: var(--foreground);
-    @apply w-full rounded-lg px-3 py-2.5 text-sm transition-colors;
+    border-radius: var(--radius-sm);
+    @apply w-full px-3 py-2.5 text-sm;
+  }
+  .input::placeholder {
+    color: var(--faint);
   }
   .input:focus {
     border-color: var(--brand);
@@ -108,10 +226,16 @@ body {
     @apply mb-1.5 block text-sm font-medium;
     color: var(--muted);
   }
+
+  /* Small neutral pill (icon chips, tags) */
+  .chip {
+    background: var(--brand-soft);
+    color: var(--foreground);
+    border-radius: var(--radius-sm);
+  }
 }
 
 /* ---------- Accordion (smooth open/close) ---------- */
-/* Lets `block-size: auto` animate instead of snapping. */
 @supports (interpolate-size: allow-keywords) {
   :root {
     interpolate-size: allow-keywords;
@@ -128,7 +252,6 @@ body {
 .accordion > summary::-webkit-details-marker {
   display: none;
 }
-/* Chevron that rotates on open */
 .accordion > summary::after {
   content: "";
   width: 0.55rem;
@@ -142,8 +265,6 @@ body {
 .accordion[open] > summary::after {
   transform: rotate(-135deg);
 }
-
-/* Height animation for the content region */
 .accordion::details-content {
   block-size: 0;
   overflow: hidden;
@@ -151,6 +272,29 @@ body {
 }
 .accordion[open]::details-content {
   block-size: auto;
+}
+
+/* ---------- Entrance animations ---------- */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-up {
+  animation: fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* ---------- Date picker (react-day-picker) theming ---------- */
@@ -184,7 +328,6 @@ body {
   background: var(--surface-2);
   border-radius: 8px;
 }
-/* Month / year dropdowns */
 .rdp-dropdown_root {
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -202,7 +345,6 @@ body {
   background: var(--surface);
   color: var(--foreground);
 }
-/* Days */
 .rdp-day_button {
   border-radius: 8px;
 }
@@ -214,7 +356,7 @@ body {
   font-weight: 700;
 }
 .rdp-selected .rdp-day_button {
-  color: #fff;
+  color: var(--on-brand);
   border: none;
   font-weight: 600;
 }
@@ -224,6 +366,6 @@ body {
   height: 8px;
 }
 .scroll-thin::-webkit-scrollbar-thumb {
-  background: var(--border);
+  background: var(--border-strong);
   border-radius: 4px;
 }

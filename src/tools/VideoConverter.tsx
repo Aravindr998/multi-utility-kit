@@ -90,7 +90,7 @@ export default function VideoConverter() {
             {(["mp4", "webm", "gif"] as Fmt[]).map((f) => (
               <button key={f} onClick={() => setFormat(f)} disabled={busy}
                 className="rounded-lg px-4 py-2 text-sm font-semibold uppercase"
-                style={{ background: format === f ? "var(--brand)" : "var(--surface-2)", color: format === f ? "#fff" : "var(--foreground)", border: "1px solid var(--border)" }}>
+                style={{ background: format === f ? "var(--brand)" : "var(--surface-2)", color: format === f ? "var(--on-brand)" : "var(--foreground)", border: "1px solid var(--border)" }}>
                 {f}
               </button>
             ))}

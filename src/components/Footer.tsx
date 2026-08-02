@@ -7,66 +7,61 @@ export default function Footer() {
 
   return (
     <footer
-      className="mt-16"
-      style={{ borderTop: "1px solid var(--border)", background: "var(--surface)" }}
+      className="mt-24"
+      style={{ borderTop: "1px solid var(--border)", background: "var(--background)" }}
     >
-      <div className="mx-auto max-w-6xl px-4 py-10">
-        <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
-          <div>
-            <div className="flex items-center gap-2 font-bold">
-              <span
-                className="grid h-7 w-7 place-items-center rounded-md text-white"
-                style={{ background: "var(--brand)" }}
-                aria-hidden
-              >
-                ⚙️
-              </span>
-              {SITE.name}
-            </div>
-            <p className="mt-3 text-sm text-[var(--muted)]">{SITE.tagline}. Free, private and no sign-up required.</p>
-          </div>
-
-          <div>
-            <h3 className="mb-3 text-sm font-semibold">Categories</h3>
-            <ul className="space-y-2 text-sm">
-              {cats.map((c) => (
-                <li key={c.slug}>
-                  <Link href={`/category/${c.slug}`} className="text-[var(--muted)] hover:text-[var(--foreground)]">
-                    {c.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="mb-3 text-sm font-semibold">Company</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/about" className="text-[var(--muted)] hover:text-[var(--foreground)]">About</Link>
-              </li>
-              <li>
-                <Link href="/privacy" className="text-[var(--muted)] hover:text-[var(--foreground)]">Privacy Policy</Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="mb-3 text-sm font-semibold">Private by design</h3>
-            <p className="text-sm text-[var(--muted)]">
-              Most tools run entirely in your browser. Your files never touch our servers.
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+        <div className="flex flex-col justify-between gap-10 md:flex-row">
+          {/* Brand */}
+          <div className="max-w-sm">
+            <div className="text-lg font-bold tracking-tight">{SITE.name}</div>
+            <p className="mt-4 text-sm leading-relaxed text-[var(--muted)]">
+              © {year} {SITE.name}. All rights reserved. Made for speed &amp; privacy —
+              professional-grade tools that never touch our servers.
             </p>
           </div>
-        </div>
 
-        <div
-          className="mt-8 flex flex-col items-center justify-between gap-2 pt-6 text-sm text-[var(--muted)] sm:flex-row"
-          style={{ borderTop: "1px solid var(--border)" }}
-        >
-          <p>© {year} {SITE.name}. All rights reserved.</p>
-          <p>Made for speed & privacy.</p>
+          {/* Link columns */}
+          <div className="grid grid-cols-2 gap-12 sm:gap-16">
+            <FooterCol title="Product">
+              <FooterLink href="/#all-tools">All tools</FooterLink>
+              {cats.slice(0, 4).map((c) => (
+                <FooterLink key={c.slug} href={`/category/${c.slug}`}>
+                  {c.name}
+                </FooterLink>
+              ))}
+            </FooterCol>
+
+            <FooterCol title="Company">
+              <FooterLink href="/about">About</FooterLink>
+              <FooterLink href="/privacy">Privacy Policy</FooterLink>
+              <FooterLink href="/#all-tools">Browse tools</FooterLink>
+            </FooterCol>
+          </div>
         </div>
       </div>
     </footer>
+  );
+}
+
+function FooterCol({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div className="flex flex-col gap-3">
+      <h3 className="text-xs font-bold uppercase tracking-wider text-[var(--foreground)]">
+        {title}
+      </h3>
+      {children}
+    </div>
+  );
+}
+
+function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
+  return (
+    <Link
+      href={href}
+      className="text-sm text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
+    >
+      {children}
+    </Link>
   );
 }

@@ -505,7 +505,7 @@ export default function NotesApp() {
           top: -0.02em;
           font-size: 0.95rem;
           line-height: 1;
-          color: #fff;
+          color: var(--on-brand);
           font-weight: 700;
           pointer-events: none;
         }
@@ -528,7 +528,7 @@ function ViewBtn({ active, onClick, title, label }: { active: boolean; onClick: 
       aria-pressed={active}
       onClick={onClick}
       className="rounded-md px-2.5 py-1 text-sm"
-      style={active ? { background: "var(--brand)", color: "#fff" } : { color: "var(--muted)" }}
+      style={active ? { background: "var(--brand)", color: "var(--on-brand)" } : { color: "var(--muted)" }}
     >
       {label}
     </button>

@@ -155,7 +155,7 @@ export default function UnitConverter() {
             key={c.key}
             onClick={() => changeCat(c.key)}
             className="rounded-full px-3 py-1.5 text-sm font-medium"
-            style={{ background: catKey === c.key ? "var(--brand)" : "var(--surface-2)", color: catKey === c.key ? "#fff" : "var(--foreground)", border: "1px solid var(--border)" }}
+            style={{ background: catKey === c.key ? "var(--brand)" : "var(--surface-2)", color: catKey === c.key ? "var(--on-brand)" : "var(--foreground)", border: "1px solid var(--border)" }}
           >
             {c.label}
           </button>

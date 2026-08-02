@@ -53,11 +53,17 @@ export default async function CategoryPage({
         </ol>
       </nav>
 
-      <div className="mb-8 flex items-start gap-3">
-        <span className="text-4xl" aria-hidden>{cat.icon}</span>
+      <div className="mb-8 flex items-start gap-4">
+        <span
+          className="grid h-14 w-14 shrink-0 place-items-center rounded-lg text-3xl"
+          style={{ background: "var(--brand-soft)" }}
+          aria-hidden
+        >
+          {cat.icon}
+        </span>
         <div>
-          <h1 className="text-3xl font-bold">Free {cat.name}</h1>
-          <p className="mt-1 max-w-2xl text-[var(--muted)]">{cat.description}</p>
+          <h1 className="text-3xl font-bold tracking-tight">Free {cat.name}</h1>
+          <p className="mt-1.5 max-w-2xl text-[var(--muted)]">{cat.description}</p>
         </div>
       </div>
 

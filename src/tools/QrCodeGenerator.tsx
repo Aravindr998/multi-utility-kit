@@ -276,7 +276,7 @@ export default function QrCodeGenerator() {
               key={m}
               onClick={() => setMode(m)}
               className="rounded-lg px-3 py-2 text-sm font-semibold uppercase"
-              style={{ background: mode === m ? "var(--brand)" : "var(--surface-2)", color: mode === m ? "#fff" : "var(--foreground)", border: "1px solid var(--border)" }}
+              style={{ background: mode === m ? "var(--brand)" : "var(--surface-2)", color: mode === m ? "var(--on-brand)" : "var(--foreground)", border: "1px solid var(--border)" }}
             >
               {m === "vcard" ? "vCard" : m}
             </button>
@@ -336,7 +336,7 @@ export default function QrCodeGenerator() {
                 key={s.id}
                 onClick={() => setDotStyle(s.id)}
                 className="rounded-lg px-3 py-2 text-sm font-medium"
-                style={{ background: dotStyle === s.id ? "var(--brand)" : "var(--surface-2)", color: dotStyle === s.id ? "#fff" : "var(--foreground)", border: "1px solid var(--border)" }}
+                style={{ background: dotStyle === s.id ? "var(--brand)" : "var(--surface-2)", color: dotStyle === s.id ? "var(--on-brand)" : "var(--foreground)", border: "1px solid var(--border)" }}
               >
                 {s.label}
               </button>
@@ -352,7 +352,7 @@ export default function QrCodeGenerator() {
                 key={s.id}
                 onClick={() => setEyeStyle(s.id)}
                 className="rounded-lg px-3 py-2 text-sm font-medium"
-                style={{ background: eyeStyle === s.id ? "var(--brand)" : "var(--surface-2)", color: eyeStyle === s.id ? "#fff" : "var(--foreground)", border: "1px solid var(--border)" }}
+                style={{ background: eyeStyle === s.id ? "var(--brand)" : "var(--surface-2)", color: eyeStyle === s.id ? "var(--on-brand)" : "var(--foreground)", border: "1px solid var(--border)" }}
               >
                 {s.label}
               </button>

@@ -181,7 +181,7 @@ export default function YoutubeDownloader() {
                   key={q}
                   onClick={() => setQuality(q)}
                   className="rounded-lg px-3 py-2 text-sm font-semibold"
-                  style={{ background: quality === q ? "var(--brand)" : "var(--surface-2)", color: quality === q ? "#fff" : "var(--foreground)", border: "1px solid var(--border)" }}
+                  style={{ background: quality === q ? "var(--brand)" : "var(--surface-2)", color: quality === q ? "var(--on-brand)" : "var(--foreground)", border: "1px solid var(--border)" }}
                 >
                   {QUALITY_LABEL[q]}
                 </button>
@@ -194,11 +194,11 @@ export default function YoutubeDownloader() {
             <label className="label">What to download</label>
             <div className="flex gap-2">
               <button onClick={() => setMode("full")} className="rounded-lg px-3 py-2 text-sm font-semibold"
-                style={{ background: mode === "full" ? "var(--brand)" : "var(--surface-2)", color: mode === "full" ? "#fff" : "var(--foreground)", border: "1px solid var(--border)" }}>
+                style={{ background: mode === "full" ? "var(--brand)" : "var(--surface-2)", color: mode === "full" ? "var(--on-brand)" : "var(--foreground)", border: "1px solid var(--border)" }}>
                 Full video
               </button>
               <button onClick={() => setMode("clip")} className="rounded-lg px-3 py-2 text-sm font-semibold"
-                style={{ background: mode === "clip" ? "var(--brand)" : "var(--surface-2)", color: mode === "clip" ? "#fff" : "var(--foreground)", border: "1px solid var(--border)" }}>
+                style={{ background: mode === "clip" ? "var(--brand)" : "var(--surface-2)", color: mode === "clip" ? "var(--on-brand)" : "var(--foreground)", border: "1px solid var(--border)" }}>
                 Clip (start – end)
               </button>
             </div>

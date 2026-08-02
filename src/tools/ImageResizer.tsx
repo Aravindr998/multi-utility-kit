@@ -335,7 +335,7 @@ export default function ImageResizer() {
                               width: 12,
                               height: 12,
                               background: "var(--brand)",
-                              border: "2px solid #fff",
+                              border: "2px solid var(--on-brand)",
                             }}
                             data-kind={hnd}
                             onPointerDown={onPointerDown}

@@ -115,7 +115,7 @@ export default function ImageConverter() {
                 className="rounded-lg px-4 py-2 text-sm font-semibold"
                 style={{
                   background: format === f ? "var(--brand)" : "var(--surface-2)",
-                  color: format === f ? "#fff" : "var(--foreground)",
+                  color: format === f ? "var(--on-brand)" : "var(--foreground)",
                   border: "1px solid var(--border)",
                 }}
               >

@@ -161,7 +161,7 @@ function ModeBtn({ active, onClick, label }: { active: boolean; onClick: () => v
     <button
       onClick={onClick}
       className="rounded-lg px-3 py-2 text-sm font-semibold"
-      style={{ background: active ? "var(--brand)" : "var(--surface-2)", color: active ? "#fff" : "var(--foreground)", border: "1px solid var(--border)" }}
+      style={{ background: active ? "var(--brand)" : "var(--surface-2)", color: active ? "var(--on-brand)" : "var(--foreground)", border: "1px solid var(--border)" }}
     >
       {label}
     </button>

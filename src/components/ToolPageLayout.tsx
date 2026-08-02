@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { categoryOf, type Tool } from "@/lib/tools";
+import PinButton from "@/components/PinButton";
 
 /**
  * Wraps every tool page with a consistent shell:
@@ -39,18 +40,29 @@ export default function ToolPageLayout({
       </nav>
 
       {/* Header */}
-      <div className="mb-6 flex items-start gap-3">
-        <span
-          className="grid h-12 w-12 shrink-0 place-items-center rounded-xl text-2xl"
-          style={{ background: "var(--brand-soft)" }}
-          aria-hidden
-        >
-          {tool.icon}
-        </span>
-        <div>
-          <h1 className="text-2xl font-bold sm:text-3xl">{tool.h1}</h1>
-          <p className="mt-1 text-[var(--muted)]">{tool.cardDescription}</p>
+      <div className="mb-6 flex items-start justify-between gap-4">
+        <div className="flex items-start gap-3">
+          <span
+            className="grid h-12 w-12 shrink-0 place-items-center rounded-lg text-2xl"
+            style={{ background: "var(--brand-soft)" }}
+            aria-hidden
+          >
+            {tool.icon}
+          </span>
+          <div>
+            <h1 className="text-2xl font-bold tracking-tight sm:text-3xl">{tool.h1}</h1>
+            <p className="mt-1 text-[var(--muted)]">{tool.cardDescription}</p>
+          </div>
         </div>
+        <PinButton
+          slug={tool.slug}
+          variant="full"
+          className="mt-1 hidden shrink-0 whitespace-nowrap px-3 sm:inline-flex"
+        />
+        <PinButton
+          slug={tool.slug}
+          className="mt-1 shrink-0 border border-[var(--border-strong)] sm:hidden"
+        />
       </div>
 
       {/* Tool UI */}
@@ -61,7 +73,7 @@ export default function ToolPageLayout({
         className="mt-6 flex items-start gap-2 rounded-lg p-3 text-sm"
         style={
           tool.serverSide
-            ? { background: "color-mix(in srgb, #f59e0b 12%, transparent)", color: "var(--foreground)" }
+            ? { background: "color-mix(in srgb, var(--warning) 14%, transparent)", color: "var(--foreground)" }
             : { background: "var(--surface-2)", color: "var(--muted)" }
         }
       >
@@ -82,8 +94,8 @@ export default function ToolPageLayout({
             {tool.howTo.map((step, i) => (
               <li key={i} className="flex gap-3">
                 <span
-                  className="grid h-6 w-6 shrink-0 place-items-center rounded-full text-xs font-bold text-white"
-                  style={{ background: "var(--brand)" }}
+                  className="grid h-6 w-6 shrink-0 place-items-center rounded-full text-xs font-bold"
+                  style={{ background: "var(--brand)", color: "var(--on-brand)" }}
                 >
                   {i + 1}
                 </span>

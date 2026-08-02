@@ -131,7 +131,7 @@ export default function PdfMerge() {
                   >
                     ⠿
                   </button>
-                  <span className="grid h-6 w-6 place-items-center rounded text-xs font-bold text-white" style={{ background: "var(--brand)" }}>{i + 1}</span>
+                  <span className="grid h-6 w-6 place-items-center rounded text-xs font-bold" style={{ background: "var(--brand)", color: "var(--on-brand)" }}>{i + 1}</span>
                   <PdfThumbnail file={item.file} width={36} />
                   <span className="min-w-0 flex-1 truncate text-sm">{item.file.name}</span>
                   <span className="text-xs text-[var(--muted)]">{formatBytes(item.file.size)}</span>
