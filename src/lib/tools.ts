@@ -87,6 +87,20 @@ export const CATEGORIES: Category[] = [
     icon: "⚡",
   },
   {
+    slug: "time-tools",
+    name: "Time",
+    description:
+      "World clock, stopwatch, timer, alarm, countdowns and date & time-zone converters.",
+    icon: "🕐",
+  },
+  {
+    slug: "random-tools",
+    name: "Random",
+    description:
+      "Random numbers, passwords, names, dice, coin flips, colors, decisions and more.",
+    icon: "🎲",
+  },
+  {
     slug: "developer-tools",
     name: "Developer Tools",
     description: "Format JSON, encode Base64, test regex and more.",
@@ -552,6 +566,422 @@ export const TOOLS: Tool[] = [
       "This notes app runs entirely in your browser. Your notes are saved only to this device's local storage and are never uploaded to any server.",
     available: true,
   },
+  {
+    slug: "character-counter",
+    name: "Character Counter",
+    h1: "Free Character Counter",
+    title: "Character Counter – Free Online Text Tool | UtilityHub",
+    description:
+      "Count characters, words and lines in real time, with live limit indicators for Twitter/X, SMS, meta descriptions and more. Free, private, in-browser.",
+    cardDescription: "Live character count with platform limits.",
+    category: "text-tools",
+    keywords: ["character counter", "letter count", "character limit", "twitter character count", "sms length"],
+    icon: "🔤",
+    intro:
+      "Count the exact number of characters in your text as you type — with and without spaces — plus words, lines and bytes. Live limit meters for Twitter/X, SMS, meta descriptions and headlines show how much room you have left. Everything runs in your browser and nothing is sent anywhere.",
+    howTo: [
+      "Type or paste your text into the box.",
+      "Watch the character, word and line counts update live.",
+      "Check the limit meters to stay within platform limits.",
+    ],
+    faqs: [
+      { q: "Does it count spaces?", a: "Both totals are shown: characters including spaces and characters excluding spaces, so you can use whichever a platform requires." },
+      { q: "What limits are shown?", a: "Common ones like Twitter/X (280), SMS (160), and the ~160-character meta-description sweet spot, each with a live progress meter." },
+      { q: "Is my text private?", a: "Yes — counting happens entirely in your browser and your text is never uploaded." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "remove-duplicate-lines",
+    name: "Remove Duplicate Lines",
+    h1: "Remove Duplicate Lines Online",
+    title: "Remove Duplicate Lines – Free Online Text Tool | UtilityHub",
+    description:
+      "Remove duplicate lines from a list or text instantly, keeping the first occurrence. Optional case-insensitive matching and whitespace trimming. Free and private.",
+    cardDescription: "Delete repeated lines, keep the first of each.",
+    category: "text-tools",
+    keywords: ["remove duplicate lines", "delete duplicate lines", "dedupe list", "unique lines", "remove repeated lines"],
+    icon: "🧹",
+    intro:
+      "Clean up a list by removing duplicate lines while keeping the first occurrence of each, in order. Ideal for tidying up email lists, keyword lists, log lines and CSV columns. Optionally ignore case and surrounding whitespace when comparing. It all runs in your browser.",
+    howTo: [
+      "Paste your lines into the input box.",
+      "Choose whether to ignore case and trim whitespace when comparing.",
+      "Copy the de-duplicated result from the output.",
+    ],
+    faqs: [
+      { q: "Does it keep the order of my lines?", a: "Yes. The first occurrence of each line is kept in its original position; later duplicates are removed." },
+      { q: "Can it ignore case?", a: "Yes. Turn on 'ignore case' so that, for example, 'Apple' and 'apple' are treated as duplicates." },
+      { q: "Is my list uploaded?", a: "No. The de-duplication runs in your browser and nothing is sent to a server." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "sort-lines",
+    name: "Sort Lines",
+    h1: "Sort Lines Alphabetically Online",
+    title: "Sort Lines – Free Online Text Tool | UtilityHub",
+    description:
+      "Sort lines of text alphabetically (A–Z or Z–A), numerically, or reverse and shuffle them. Optional case-insensitive sorting and duplicate removal. Free and private.",
+    cardDescription: "Sort lines A–Z, Z–A, numeric or shuffle.",
+    category: "text-tools",
+    keywords: ["sort lines", "alphabetize", "sort alphabetically", "sort list", "sort numbers"],
+    icon: "🔃",
+    intro:
+      "Sort any list of lines alphabetically (A–Z or Z–A), numerically, by length, or shuffle them randomly. Handy for organizing lists, names, imports and data columns. Options let you ignore case and drop duplicates in the same pass. Processing happens entirely in your browser.",
+    howTo: [
+      "Paste your list into the input box.",
+      "Pick a sort order (A–Z, Z–A, numeric, length or shuffle).",
+      "Copy the sorted lines from the output.",
+    ],
+    faqs: [
+      { q: "Can it sort numbers correctly?", a: "Yes. Choose numeric sort to order lines by their numeric value rather than as text, so 2 comes before 10." },
+      { q: "Can I remove duplicates while sorting?", a: "Yes. Enable 'remove duplicates' to output only the unique lines in sorted order." },
+      { q: "Is my data private?", a: "Yes — sorting runs in your browser and your text is never uploaded." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "reverse-text",
+    name: "Reverse Text",
+    h1: "Reverse Text Online",
+    title: "Reverse Text – Free Online Text Tool | UtilityHub",
+    description:
+      "Reverse text by characters, words or lines. Flip a string backwards, reverse word order, or flip the order of lines instantly. Free, private, in-browser.",
+    cardDescription: "Flip text by characters, words or lines.",
+    category: "text-tools",
+    keywords: ["reverse text", "backwards text", "flip text", "reverse string", "reverse words"],
+    icon: "🪞",
+    intro:
+      "Reverse your text in three ways: flip the characters so it reads backwards, reverse the order of the words, or flip the order of the lines. Great for puzzles, testing and formatting. It runs instantly in your browser and nothing is uploaded.",
+    howTo: [
+      "Type or paste your text.",
+      "Choose to reverse by characters, words or lines.",
+      "Copy the reversed result.",
+    ],
+    faqs: [
+      { q: "What is the difference between the modes?", a: "'Characters' flips the whole string backwards, 'words' keeps each word but reverses their order, and 'lines' flips the order of the lines." },
+      { q: "Does it handle emoji correctly?", a: "Character reversal is Unicode-aware, so multi-byte characters and most emoji are kept intact rather than being split." },
+      { q: "Is my text private?", a: "Yes — everything runs in your browser and nothing is uploaded." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "random-text-generator",
+    name: "Random Text Generator",
+    h1: "Random Text & String Generator",
+    title: "Random Text Generator – Free Online Text Tool | UtilityHub",
+    description:
+      "Generate random strings, passwords, numbers and placeholder words. Choose length, character sets and quantity. Great for test data and passwords. Free and private.",
+    cardDescription: "Random strings, passwords, numbers & words.",
+    category: "text-tools",
+    keywords: ["random text generator", "random string", "random password", "random letters", "test data generator"],
+    icon: "🎲",
+    intro:
+      "Generate random text for testing, passwords or sample data. Pick the character sets (uppercase, lowercase, digits, symbols), set the length and how many to generate, and get fresh random strings instantly. Randomness uses your browser's secure crypto generator, and nothing is sent anywhere.",
+    howTo: [
+      "Choose which character sets to include and the length.",
+      "Set how many strings you want.",
+      "Click Generate and copy the results.",
+    ],
+    faqs: [
+      { q: "Are the strings cryptographically random?", a: "Yes. They use the browser's crypto.getRandomValues, making them suitable for passwords and tokens." },
+      { q: "Can I generate multiple at once?", a: "Yes. Set the quantity to generate a batch of random strings in one click." },
+      { q: "Is anything sent to a server?", a: "No. Generation happens entirely in your browser." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "lorem-ipsum",
+    name: "Lorem Ipsum Generator",
+    h1: "Free Lorem Ipsum Generator",
+    title: "Lorem Ipsum Generator – Free Placeholder Text | UtilityHub",
+    description:
+      "Generate Lorem Ipsum placeholder text by paragraphs, sentences or words. Optionally start with the classic 'Lorem ipsum dolor sit amet'. Copy instantly. Free and private.",
+    cardDescription: "Placeholder text by paragraphs, sentences or words.",
+    category: "text-tools",
+    keywords: ["lorem ipsum", "lorem ipsum generator", "placeholder text", "dummy text", "filler text"],
+    icon: "📜",
+    intro:
+      "Generate classic Lorem Ipsum placeholder text for mockups, designs and layouts. Choose how many paragraphs, sentences or words you need and whether to begin with the traditional 'Lorem ipsum dolor sit amet…'. Copy the result with one click. It all runs locally in your browser.",
+    howTo: [
+      "Choose the amount and unit (paragraphs, sentences or words).",
+      "Toggle whether to start with the classic opening line.",
+      "Click Generate and copy the placeholder text.",
+    ],
+    faqs: [
+      { q: "What is Lorem Ipsum?", a: "It's scrambled Latin-like placeholder text used since the 1500s in typesetting and design to show layout without meaningful content distracting the viewer." },
+      { q: "Can I generate just a few words?", a: "Yes. Switch the unit to words or sentences and set the exact amount you need." },
+      { q: "Is it free to use?", a: "Yes — the generated text is free to use anywhere, and generation happens entirely in your browser." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "remove-empty-lines",
+    name: "Remove Empty Lines",
+    h1: "Remove Empty Lines Online",
+    title: "Remove Empty Lines – Free Online Text Tool | UtilityHub",
+    description:
+      "Remove blank and empty lines from text instantly. Optionally collapse multiple blank lines into one, or drop whitespace-only lines. Free, private, in-browser.",
+    cardDescription: "Strip blank lines from text.",
+    category: "text-tools",
+    keywords: ["remove empty lines", "remove blank lines", "delete empty lines", "strip blank lines", "compact text"],
+    icon: "🧽",
+    intro:
+      "Strip out empty and blank lines to compact your text. Choose to remove all blank lines, treat whitespace-only lines as blank, or simply collapse runs of multiple blank lines down to a single one. Perfect for cleaning up pasted content, code and lists. Runs entirely in your browser.",
+    howTo: [
+      "Paste your text into the input box.",
+      "Pick whether to remove all blank lines or just collapse extra ones.",
+      "Copy the cleaned-up result.",
+    ],
+    faqs: [
+      { q: "Does it remove lines with only spaces?", a: "If you enable 'treat whitespace as empty', lines containing only spaces or tabs are removed as well." },
+      { q: "Can I keep single blank lines?", a: "Yes. Choose 'collapse blank lines' to reduce multiple consecutive blanks to a single blank line instead of removing them all." },
+      { q: "Is my text uploaded?", a: "No. The cleanup runs in your browser and nothing is sent anywhere." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "find-and-replace",
+    name: "Find and Replace",
+    h1: "Online Find and Replace Text",
+    title: "Find and Replace – Free Online Text Tool | UtilityHub",
+    description:
+      "Find and replace text online, with case-insensitive matching, whole-word matching and full regular-expression support (including capture groups). Free and private.",
+    cardDescription: "Find & replace text, with regex support.",
+    category: "text-tools",
+    keywords: ["find and replace", "search and replace", "replace text", "regex replace", "bulk replace"],
+    icon: "🔎",
+    intro:
+      "Search your text and replace every match at once. Do a plain find-and-replace, match whole words only, ignore case, or switch on full regular-expression mode with support for capture groups like $1. A live match count shows how many replacements will be made. Everything runs in your browser.",
+    howTo: [
+      "Paste your text and type what to find and what to replace it with.",
+      "Toggle case-insensitive, whole-word or regex mode as needed.",
+      "Review the match count and copy the replaced text.",
+    ],
+    faqs: [
+      { q: "Does it support regular expressions?", a: "Yes. Enable regex mode to use patterns and capture groups (reference them as $1, $2 in the replacement)." },
+      { q: "Can I replace whole words only?", a: "Yes. Whole-word mode wraps your search in word boundaries so partial matches inside larger words are skipped." },
+      { q: "Is my text private?", a: "Yes — the replacement runs in your browser and nothing is uploaded." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "trim-whitespace",
+    name: "Trim Whitespace",
+    h1: "Trim Whitespace Online",
+    title: "Trim Whitespace – Free Online Text Tool | UtilityHub",
+    description:
+      "Trim leading and trailing spaces, collapse multiple spaces into one, remove tabs and clean up messy whitespace in text. Free, instant and private.",
+    cardDescription: "Trim & collapse messy whitespace.",
+    category: "text-tools",
+    keywords: ["trim whitespace", "remove extra spaces", "collapse spaces", "trim spaces", "clean whitespace"],
+    icon: "✂️",
+    intro:
+      "Tidy up messy spacing in your text. Trim leading and trailing spaces from each line, collapse runs of multiple spaces into a single space, convert tabs to spaces and remove trailing blank lines. Great for cleaning up pasted content and data. It all runs in your browser.",
+    howTo: [
+      "Paste your text into the input box.",
+      "Choose which whitespace fixes to apply.",
+      "Copy the cleaned-up text.",
+    ],
+    faqs: [
+      { q: "What does 'collapse spaces' do?", a: "It replaces any run of two or more spaces with a single space, which is handy for text copied with irregular spacing." },
+      { q: "Does it affect line breaks?", a: "By default line breaks are preserved; the tool only cleans horizontal whitespace unless you also remove blank lines." },
+      { q: "Is my text private?", a: "Yes — everything runs in your browser and nothing is uploaded." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "unicode-inspector",
+    name: "Unicode Inspector",
+    h1: "Unicode Character Inspector",
+    title: "Unicode Inspector – Character & Code Point Tool | UtilityHub",
+    description:
+      "Inspect any text character by character: see each Unicode code point, name, hex value, UTF-8 bytes and category. Reveal hidden and invisible characters. Free and private.",
+    cardDescription: "See code points, names & bytes for each character.",
+    category: "text-tools",
+    keywords: ["unicode inspector", "code point", "character inspector", "utf-8 bytes", "unicode lookup"],
+    icon: "🔬",
+    intro:
+      "Break any text down into its individual Unicode characters and see exactly what they are — the code point (U+XXXX), the character's name, its hexadecimal value and UTF-8 byte sequence. Perfect for spotting hidden, invisible or look-alike characters that cause bugs. Everything is analysed in your browser.",
+    howTo: [
+      "Paste or type the text you want to inspect.",
+      "Read the per-character table of code points and details.",
+      "Use it to spot invisible or unexpected characters.",
+    ],
+    faqs: [
+      { q: "Can it reveal invisible characters?", a: "Yes. Zero-width spaces, non-breaking spaces and other invisible characters appear as rows in the table with their code points, so you can find them." },
+      { q: "What is a code point?", a: "A code point is the numeric value Unicode assigns to a character, written like U+0041 for 'A'. The tool shows it for every character." },
+      { q: "Is my text uploaded?", a: "No. The analysis runs entirely in your browser." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "emoji-picker",
+    name: "Emoji Picker",
+    h1: "Online Emoji Picker",
+    title: "Emoji Picker – Search & Copy Emojis | UtilityHub",
+    description:
+      "Search hundreds of emojis by name and copy them with one click. Browse by category and keep a list of recently used emojis. Free, fast and private.",
+    cardDescription: "Search and copy emojis by name.",
+    category: "text-tools",
+    keywords: ["emoji picker", "copy emoji", "emoji search", "emoji keyboard", "emoji list"],
+    icon: "😀",
+    intro:
+      "Find the right emoji fast. Search hundreds of emojis by name or keyword, browse them by category, and click any one to copy it to your clipboard. Your recently used emojis are remembered on this device for quick reuse. It all runs in your browser.",
+    howTo: [
+      "Search by name (e.g. 'heart', 'fire') or scroll the categories.",
+      "Click an emoji to copy it to your clipboard.",
+      "Reuse your recently copied emojis from the top row.",
+    ],
+    faqs: [
+      { q: "How do I copy an emoji?", a: "Just click it — the emoji is copied to your clipboard and you'll see a brief confirmation." },
+      { q: "Will the emojis look the same everywhere?", a: "Emojis render using each device's own emoji font, so the exact style varies by platform, but the character is identical." },
+      { q: "Is anything tracked?", a: "No. Your recently used list is stored only in this browser and nothing is uploaded." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "fancy-text-generator",
+    name: "Fancy Text Generator",
+    h1: "Fancy Text Generator",
+    title: "Fancy Text Generator – Stylish Unicode Text | UtilityHub",
+    description:
+      "Turn plain text into fancy Unicode styles — bold, italic, script, bubbles, squares, small caps, upside-down and strikethrough — for social media bios and posts. Free and private.",
+    cardDescription: "Turn text into stylish Unicode fonts.",
+    category: "text-tools",
+    keywords: ["fancy text generator", "stylish text", "unicode fonts", "cool text", "instagram fonts"],
+    icon: "🎨",
+    intro:
+      "Transform your text into eye-catching Unicode styles you can paste into social bios, posts, usernames and messages — 𝐛𝐨𝐥𝐝, 𝑖𝑡𝑎𝑙𝑖𝑐, 𝓼𝓬𝓻𝓲𝓹𝓽, Ⓑⓤⓑⓑⓛⓔⓢ, 🅂🅀🅄🄰🅁🄴🅂, smɐll cɐps, upside-down and more. These are real Unicode characters, not images, so they work almost anywhere. It all runs in your browser.",
+    howTo: [
+      "Type or paste your text.",
+      "Browse the styled variations that appear.",
+      "Click any style to copy it, then paste it wherever you like.",
+    ],
+    faqs: [
+      { q: "Will these fonts work on Instagram and Twitter?", a: "Yes. They're standard Unicode characters, so they paste into most bios, posts and usernames — though a few platforms or fonts may not display every style." },
+      { q: "Are these actual fonts?", a: "No — they're alternative Unicode letter shapes, which is why you can copy and paste them as plain text rather than needing a font installed." },
+      { q: "Is my text private?", a: "Yes — the conversion happens in your browser and nothing is uploaded." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "slug-generator",
+    name: "Slug Generator",
+    h1: "URL Slug Generator",
+    title: "Slug Generator – Free URL Slug Tool | UtilityHub",
+    description:
+      "Convert titles and text into clean, SEO-friendly URL slugs. Lowercases, removes accents and special characters, and joins words with hyphens. Free and private.",
+    cardDescription: "Turn titles into clean URL slugs.",
+    category: "text-tools",
+    keywords: ["slug generator", "url slug", "seo slug", "slugify", "permalink generator"],
+    icon: "🔖",
+    intro:
+      "Turn any title or phrase into a clean, SEO-friendly URL slug. It lowercases the text, strips accents and special characters, and joins words with hyphens (or a separator you choose). Great for blog permalinks, filenames and IDs. Everything runs in your browser.",
+    howTo: [
+      "Type or paste your title or text.",
+      "Choose a separator and whether to force lowercase.",
+      "Copy the generated slug.",
+    ],
+    faqs: [
+      { q: "Does it handle accented characters?", a: "Yes. Accents are converted to their closest ASCII letters (é → e) so the slug is clean and URL-safe." },
+      { q: "Can I use underscores instead of hyphens?", a: "Yes. Pick your preferred separator — hyphen is the SEO-friendly default, but underscore and others are available." },
+      { q: "Is my text private?", a: "Yes — everything runs in your browser and nothing is uploaded." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "html-escape",
+    name: "HTML Escape / Unescape",
+    h1: "HTML Escape & Unescape",
+    title: "HTML Escape / Unescape – Free Online Text Tool | UtilityHub",
+    description:
+      "Escape HTML special characters to entities (< &lt;, & &amp;) or unescape entities back to characters. Safely display code in HTML. Free, private, in-browser.",
+    cardDescription: "Escape or unescape HTML entities.",
+    category: "text-tools",
+    keywords: ["html escape", "html unescape", "html entities", "escape html", "encode html"],
+    icon: "🔣",
+    intro:
+      "Convert text to and from HTML entities. Escaping turns characters like <, >, & and quotes into their safe entity equivalents so you can display code or user content inside HTML without it being interpreted. Unescaping turns entities back into readable characters. Both directions run in your browser.",
+    howTo: [
+      "Paste your text or HTML.",
+      "Choose Escape (characters → entities) or Unescape (entities → characters).",
+      "Copy the converted result.",
+    ],
+    faqs: [
+      { q: "Why would I escape HTML?", a: "Escaping prevents characters like < and & from being treated as markup, so you can safely show code snippets or untrusted text inside a web page." },
+      { q: "Which characters are escaped?", a: "The core HTML-sensitive characters — <, >, &, double and single quotes — are converted to their named or numeric entities." },
+      { q: "Is my text private?", a: "Yes — the conversion runs in your browser and nothing is uploaded." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "url-encode",
+    name: "URL Encode / Decode",
+    h1: "URL Encode & Decode",
+    title: "URL Encode / Decode – Free Online Text Tool | UtilityHub",
+    description:
+      "Percent-encode text for safe use in URLs, or decode URL-encoded strings back to plain text. Supports full-component and full-URI encoding. Free and private.",
+    cardDescription: "Percent-encode or decode URL text.",
+    category: "text-tools",
+    keywords: ["url encode", "url decode", "percent encoding", "encode uri", "decode url"],
+    icon: "🔗",
+    intro:
+      "Encode text so it's safe to drop into a URL — spaces, symbols and non-ASCII characters become percent-encoded — or decode an encoded string back into readable text. Choose component encoding (for a single query value) or full-URI encoding. Both directions run in your browser.",
+    howTo: [
+      "Paste the text or URL you want to convert.",
+      "Choose Encode or Decode, and component vs full-URI mode.",
+      "Copy the result.",
+    ],
+    faqs: [
+      { q: "What's the difference between component and URI encoding?", a: "Component encoding (encodeURIComponent) escapes characters like &, = and ? so it's right for a single query value; URI encoding keeps those structural characters for a whole URL." },
+      { q: "Why is my space shown as %20?", a: "Spaces aren't allowed in URLs, so they're percent-encoded as %20 (or + in some contexts). Decoding turns them back into spaces." },
+      { q: "Is my text private?", a: "Yes — everything runs in your browser and nothing is uploaded." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "base64",
+    name: "Base64 Encode / Decode",
+    h1: "Base64 Encode & Decode",
+    title: "Base64 Encode / Decode – Free Online Text Tool | UtilityHub",
+    description:
+      "Encode text to Base64 or decode Base64 back to text, with full Unicode (UTF-8) support and an optional URL-safe alphabet. Fast, free and private.",
+    cardDescription: "Encode or decode Base64 (UTF-8 safe).",
+    category: "text-tools",
+    keywords: ["base64 encode", "base64 decode", "base64 converter", "encode base64", "decode base64"],
+    icon: "🔐",
+    intro:
+      "Convert text to and from Base64. Encoding turns your text (including emoji and other Unicode, handled as UTF-8) into a Base64 string; decoding turns a Base64 string back into text. An optional URL-safe alphabet swaps +/ for -_ so the output is safe in URLs. Both directions run in your browser.",
+    howTo: [
+      "Paste your text or Base64 string.",
+      "Choose Encode or Decode, and toggle URL-safe if needed.",
+      "Copy the converted result.",
+    ],
+    faqs: [
+      { q: "Does it support emoji and non-English text?", a: "Yes. Text is handled as UTF-8, so emoji and accented or non-Latin characters encode and decode correctly." },
+      { q: "What is URL-safe Base64?", a: "It replaces the + and / characters with - and _ (and trims padding) so the encoded value can be used safely in URLs and filenames." },
+      { q: "Is my data private?", a: "Yes — encoding and decoding run in your browser and nothing is uploaded." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
   // ------------------------------- GENERATORS -------------------------------
   {
     slug: "qr-code-generator",
@@ -669,7 +1099,7 @@ export const TOOLS: Tool[] = [
     description:
       "Calculate your exact age in years, months and days from your date of birth, plus total days lived and days until your next birthday. Free and private.",
     cardDescription: "Exact age in years, months & days.",
-    category: "calculators",
+    category: "time-tools",
     keywords: ["age calculator", "date of birth calculator", "how old am i", "age in days"],
     icon: "🎂",
     intro:
@@ -973,6 +1403,557 @@ export const TOOLS: Tool[] = [
       "Unlike our other tools, this one runs on a server (browsers can't fetch YouTube streams). Your link is used only to fetch and process the requested video, and the temporary file is deleted right after it's sent to you. Only download content you have the right to use.",
     available: true,
     serverSide: true,
+  },
+
+  // ------------------------------- TIME -------------------------------
+  {
+    slug: "world-clock",
+    name: "World Clock",
+    h1: "World Clock — Live Times Around the World",
+    title: "World Clock – Free Online Time Tool | UtilityHub",
+    description:
+      "See the current time in cities and time zones around the world, updating live. Add the places you care about and compare them side by side. Free and private.",
+    cardDescription: "Live current time across cities and time zones.",
+    category: "time-tools",
+    keywords: ["world clock", "current time", "time in", "world time", "time zones now"],
+    icon: "🌍",
+    intro:
+      "A live world clock that shows the current time in any city or time zone you add. Build your own list of places — home, work, family, teammates — and watch every clock tick in real time, side by side, with the date and UTC offset for each. Everything runs in your browser using your device's clock.",
+    howTo: [
+      "Pick a time zone from the dropdown to add a clock.",
+      "Add as many places as you like — they update live every second.",
+      "Remove a clock with the × button; your list is remembered on this device.",
+    ],
+    faqs: [
+      { q: "Where does the time come from?", a: "Each clock is derived from your device's own clock, re-projected into the chosen IANA time zone using your browser's built-in internationalization support. No network requests are made." },
+      { q: "Does it handle daylight saving time?", a: "Yes. Time zones use the official IANA database, so DST transitions are applied automatically for each region." },
+      { q: "Are my saved cities private?", a: "Yes. Your list of clocks is stored only in this browser's local storage and never leaves your device." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "stopwatch",
+    name: "Stopwatch",
+    h1: "Free Online Stopwatch",
+    title: "Stopwatch – Free Online Time Tool | UtilityHub",
+    description:
+      "A precise online stopwatch with lap times. Start, stop and record laps with millisecond accuracy — no download, no sign-up. Runs entirely in your browser.",
+    cardDescription: "Precise stopwatch with lap times.",
+    category: "time-tools",
+    keywords: ["stopwatch", "online stopwatch", "lap timer", "timer stopwatch", "milliseconds"],
+    icon: "⏱️",
+    intro:
+      "A clean, accurate stopwatch you can use for workouts, cooking, studying or timing anything. Start and stop with a click, record lap or split times, and see hundredths of a second. It stays accurate even if the tab is in the background because it measures elapsed real time rather than counting ticks.",
+    howTo: [
+      "Press Start to begin timing.",
+      "Press Lap to record a split without stopping the clock.",
+      "Press Stop to pause, and Reset to clear everything.",
+    ],
+    faqs: [
+      { q: "Is the stopwatch accurate in a background tab?", a: "Yes. It calculates elapsed time from timestamps, so it stays accurate even if the browser throttles timers while the tab is inactive." },
+      { q: "Can I record lap times?", a: "Yes. Each Lap captures the current total and the split since the previous lap, listed newest first." },
+      { q: "Does anything get uploaded?", a: "No. The stopwatch runs entirely in your browser; nothing is sent to a server." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "timer",
+    name: "Countdown Timer",
+    h1: "Free Online Countdown Timer",
+    title: "Timer – Free Online Countdown Timer | UtilityHub",
+    description:
+      "Set a countdown timer for any duration with an alarm sound when it finishes. Great for cooking, workouts, study sessions and more. Free, private, in-browser.",
+    cardDescription: "Set a countdown with an alarm when it ends.",
+    category: "time-tools",
+    keywords: ["timer", "countdown timer", "online timer", "kitchen timer", "pomodoro timer"],
+    icon: "⏲️",
+    intro:
+      "A simple, reliable countdown timer for cooking, workouts, Pomodoro study sessions or any task. Set hours, minutes and seconds — or use a quick preset — then start. When time's up you get an alarm sound and an on-screen alert. It measures real elapsed time, so it stays accurate in background tabs.",
+    howTo: [
+      "Enter hours, minutes and seconds, or tap a quick preset.",
+      "Press Start — the timer counts down and shows the time remaining.",
+      "Pause, resume or reset at any time; an alarm sounds when it reaches zero.",
+    ],
+    faqs: [
+      { q: "Will it alert me when the tab is in the background?", a: "The timer keeps accurate time in the background and sounds an alarm when it finishes. Some browsers require the tab to have been interacted with for audio to play." },
+      { q: "Can I pause and resume?", a: "Yes. Pause freezes the remaining time and Resume continues from exactly where you left off." },
+      { q: "Is a countdown timer the same as a stopwatch?", a: "No — a timer counts down from a set duration to zero, while a stopwatch counts up from zero. We have a separate Stopwatch tool too." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "alarm",
+    name: "Alarm Clock",
+    h1: "Free Online Alarm Clock",
+    title: "Alarm Clock – Free Online Time Tool | UtilityHub",
+    description:
+      "Set an online alarm clock for a specific time with a sound and on-screen alert. Keep the tab open and it will ring at the time you choose. Free and private.",
+    cardDescription: "Ring at a set time with a sound alert.",
+    category: "time-tools",
+    keywords: ["alarm clock", "online alarm", "set alarm", "wake up alarm", "alarm for time"],
+    icon: "⏰",
+    intro:
+      "Set an alarm for any wall-clock time and this tool will ring — with a sound and an on-screen alert — the moment it arrives. Perfect for reminders, breaks or waking up from a nap. It uses your device's clock and shows a live countdown to the alarm. Keep the tab open for it to fire.",
+    howTo: [
+      "Choose the time you want the alarm to go off.",
+      "Optionally add a label, upload your own ringtone, and enable desktop notifications.",
+      "Press Set alarm and leave the tab open — it rings at that time with a sound and alert.",
+    ],
+    faqs: [
+      { q: "Does the alarm work if I close the tab?", a: "No. Because it runs entirely in your browser with no server or push service, the tab must stay open for the alarm to ring." },
+      { q: "Can I use my own ringtone?", a: "Yes. Upload any audio file (MP3, WAV, OGG, etc.) and it will play — on a loop — when the alarm fires instead of the default beep. The file stays on your device and is used only for the current session." },
+      { q: "Will it show a desktop notification?", a: "If you enable notifications, the tool asks your browser for permission and then shows a desktop notification when the alarm rings — handy if you're on another tab. You can also rely on the built-in sound and on-screen alert." },
+      { q: "Is my alarm data uploaded?", a: "No. The alarm time, label and ringtone stay in your browser and are never sent anywhere." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "countdown",
+    name: "Countdown to Date",
+    h1: "Countdown Timer to a Date",
+    title: "Countdown to a Date – Free Online Time Tool | UtilityHub",
+    description:
+      "Count down the days, hours, minutes and seconds to any future date and time — a birthday, holiday, launch or deadline. Free live countdown, private and in-browser.",
+    cardDescription: "Live countdown to any future date & time.",
+    category: "time-tools",
+    keywords: ["countdown", "countdown to date", "days until", "event countdown", "new year countdown"],
+    icon: "⏳",
+    intro:
+      "Count down to any moment that matters — a birthday, wedding, holiday, product launch, exam or deadline. Pick a target date and time and watch a live countdown of days, hours, minutes and seconds. Handy presets like New Year make it a one-click affair. It all runs in your browser using your local clock.",
+    howTo: [
+      "Choose a target date and time (or tap a preset like New Year).",
+      "Optionally add a title for your event.",
+      "Watch the live countdown update every second until the moment arrives.",
+    ],
+    faqs: [
+      { q: "What happens when the countdown reaches zero?", a: "The countdown shows that the event has arrived and displays how long ago it was, so you don't miss the moment." },
+      { q: "Which time zone does it use?", a: "It uses your device's local time zone, so the countdown reflects the target date and time where you are." },
+      { q: "Is my event private?", a: "Yes. The title and target date stay in your browser and are never uploaded." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "date-difference",
+    name: "Date Difference Calculator",
+    h1: "Free Date Difference Calculator",
+    title: "Date Difference Calculator – Days Between Dates | UtilityHub",
+    description:
+      "Calculate the exact difference between two dates in years, months and days, plus the total number of days, weeks and hours. Free, instant and private.",
+    cardDescription: "Time between two dates: years, months, days.",
+    category: "time-tools",
+    keywords: ["date difference", "days between dates", "date calculator", "how many days", "time between dates"],
+    icon: "📆",
+    intro:
+      "Find out exactly how much time lies between two dates. Enter a start and end date to see the difference broken down into years, months and days, along with the totals in days, weeks and hours. Great for anniversaries, project timelines, deadlines and trivia. Everything is calculated in your browser.",
+    howTo: [
+      "Pick a start date and an end date.",
+      "See the difference in years, months and days.",
+      "Check the totals in days, weeks and hours below.",
+    ],
+    faqs: [
+      { q: "Does it include both the start and end date?", a: "The difference counts the number of whole days from the start date to the end date. You can toggle whether the end date is included in the total-days count." },
+      { q: "Can I measure into the future?", a: "Yes. Set the end date later than the start date to count forward, whether the dates are in the past or future." },
+      { q: "Is my data private?", a: "Yes. The calculation runs in your browser and nothing is uploaded." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "working-days-calculator",
+    name: "Working Days Calculator",
+    h1: "Free Working Days (Business Days) Calculator",
+    title: "Working Days Calculator – Business Days Between Dates | UtilityHub",
+    description:
+      "Count the number of working (business) days between two dates, excluding weekends and any public holidays you add. Free, instant and private business-day calculator.",
+    cardDescription: "Business days between dates, minus weekends & holidays.",
+    category: "time-tools",
+    keywords: ["working days calculator", "business days", "networkdays", "working days between dates", "exclude weekends"],
+    icon: "💼",
+    intro:
+      "Work out how many working days fall between two dates — excluding weekends, and any public holidays or days off you add. Useful for planning deliveries, project deadlines, leave and SLAs. You can choose which days count as the weekend. All calculations happen locally in your browser.",
+    howTo: [
+      "Choose a start date and an end date.",
+      "Pick which days count as the weekend (Sat/Sun by default).",
+      "Add any holiday dates to exclude, then read the working-day total.",
+    ],
+    faqs: [
+      { q: "Are weekends excluded automatically?", a: "Yes. Saturdays and Sundays are excluded by default, and you can change which days count as the weekend." },
+      { q: "Can I exclude public holidays?", a: "Yes. Add any holiday dates and they'll be removed from the working-day count if they fall on a weekday within the range." },
+      { q: "Is the range inclusive?", a: "The count includes both the start and end dates when they are working days, matching common spreadsheet NETWORKDAYS behaviour." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "time-zone-converter",
+    name: "Time Zone Converter",
+    h1: "Free Time Zone Converter",
+    title: "Time Zone Converter – Convert Time Between Zones | UtilityHub",
+    description:
+      "Convert a time from one time zone to another instantly. Pick a date and time, choose the source and target zones, and see the converted time with the UTC offset. Free and private.",
+    cardDescription: "Convert a time from one time zone to another.",
+    category: "time-tools",
+    keywords: ["time zone converter", "timezone converter", "convert time zones", "utc converter", "meeting time zones"],
+    icon: "🌐",
+    intro:
+      "Schedule across time zones with confidence. Enter a date and time in one zone and instantly see it in another — perfect for planning calls, flights and deadlines with people in other regions. Both zones use the official IANA database, so daylight saving time is handled automatically. It all runs in your browser.",
+    howTo: [
+      "Enter the date and time to convert.",
+      "Choose the 'from' time zone and the 'to' time zone.",
+      "Read the converted time, along with each zone's UTC offset.",
+    ],
+    faqs: [
+      { q: "Does it account for daylight saving time?", a: "Yes. Conversions use the IANA time-zone database, so DST rules are applied correctly for the specific date you enter." },
+      { q: "Can I convert to my own time zone?", a: "Yes. Your local time zone is preselected, and you can set either side to any zone in the list." },
+      { q: "Is my data sent anywhere?", a: "No. The conversion is computed in your browser and nothing is uploaded." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "unix-timestamp-converter",
+    name: "Unix Timestamp Converter",
+    h1: "Free Unix Timestamp Converter",
+    title: "Unix Timestamp Converter – Epoch to Date | UtilityHub",
+    description:
+      "Convert Unix timestamps (epoch) to human-readable dates and back, in seconds or milliseconds, in UTC and your local time. Free developer-friendly timestamp tool.",
+    cardDescription: "Unix epoch ↔ human date, seconds or ms.",
+    category: "time-tools",
+    keywords: ["unix timestamp converter", "epoch converter", "timestamp to date", "epoch time", "unix time"],
+    icon: "🖥️",
+    intro:
+      "Convert between Unix timestamps (seconds or milliseconds since 1 Jan 1970 UTC) and human-readable dates, in both directions. See the result in UTC and your local time, and grab the current timestamp with one click. A handy tool for developers debugging logs, APIs and databases — all in your browser.",
+    howTo: [
+      "Enter a Unix timestamp to see the matching date, or pick a date to get its timestamp.",
+      "Switch between seconds and milliseconds as needed.",
+      "Copy the result, or use 'Now' to insert the current timestamp.",
+    ],
+    faqs: [
+      { q: "What is a Unix timestamp?", a: "It's the number of seconds (or milliseconds) that have elapsed since 00:00:00 UTC on 1 January 1970, known as the Unix epoch. It's a common way to store time in software." },
+      { q: "Seconds or milliseconds — which do I have?", a: "Timestamps around 10 digits are usually seconds; 13-digit values are milliseconds. The tool lets you switch between them and auto-detects a likely unit." },
+      { q: "Which time zone is shown?", a: "Both UTC and your local time are shown so you can read the value whichever way you need." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+
+  // ------------------------------- RANDOM -------------------------------
+  {
+    slug: "random-number",
+    name: "Random Number Generator",
+    h1: "Random Number Generator",
+    title: "Random Number Generator – Free Online Tool | UtilityHub",
+    description:
+      "Generate random numbers in any range. Pick how many, allow or forbid duplicates, and choose whole numbers or decimals. Cryptographically strong and private.",
+    cardDescription: "Random numbers in any range, with or without repeats.",
+    category: "random-tools",
+    keywords: ["random number generator", "rng", "random number", "number picker", "random between"],
+    icon: "🔢",
+    intro:
+      "Generate one or many random numbers between any two values. Choose whole numbers or decimals, decide how many to draw, and turn off duplicates for a unique set (perfect for raffles and lotteries). Randomness comes from your browser's secure generator, so it's fair and never leaves your device.",
+    howTo: [
+      "Set the minimum and maximum values.",
+      "Choose how many numbers and whether to allow duplicates.",
+      "Click Generate and copy your numbers.",
+    ],
+    faqs: [
+      { q: "Is the randomness fair?", a: "Yes. It uses the browser's crypto.getRandomValues, which is a cryptographically strong source — far better than a predictable pseudo-random sequence." },
+      { q: "Can I get unique numbers only?", a: "Yes. Turn off 'allow duplicates' to draw a set of distinct numbers, ideal for lottery-style picks." },
+      { q: "Is anything sent to a server?", a: "No. Generation happens entirely in your browser." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "random-password",
+    name: "Password Generator",
+    h1: "Strong Random Password Generator",
+    title: "Password Generator – Free Strong Passwords | UtilityHub",
+    description:
+      "Generate strong, random passwords with adjustable length and character sets. Exclude ambiguous characters, see a strength meter, and copy instantly. 100% in-browser.",
+    cardDescription: "Strong random passwords with a strength meter.",
+    category: "random-tools",
+    keywords: ["password generator", "strong password", "random password", "secure password", "passphrase"],
+    icon: "🔑",
+    intro:
+      "Create strong, hard-to-guess passwords in seconds. Choose the length and which character sets to include — uppercase, lowercase, digits and symbols — and optionally exclude look-alike characters. A live strength meter shows how secure each password is. Everything is generated in your browser with a secure random source and never sent anywhere.",
+    howTo: [
+      "Set the length and pick which character sets to include.",
+      "Optionally exclude ambiguous characters like O/0 and l/1.",
+      "Click Generate and copy your password.",
+    ],
+    faqs: [
+      { q: "Are these passwords safe?", a: "Yes. They're generated with the browser's cryptographically secure random generator and never transmitted or stored, so no one — including us — ever sees them." },
+      { q: "What makes a strong password?", a: "Length matters most. A long password (16+ characters) mixing upper, lower, digits and symbols is very hard to crack. The strength meter reflects this." },
+      { q: "Should I reuse a generated password?", a: "No — use a unique password for every account, ideally stored in a password manager." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "random-name",
+    name: "Random Name Generator",
+    h1: "Random Name Generator",
+    title: "Random Name Generator – Free Online Tool | UtilityHub",
+    description:
+      "Generate random first and last names for characters, testing, usernames and placeholders. Choose gender and how many names. Free, instant and private.",
+    cardDescription: "Random first & last names for any purpose.",
+    category: "random-tools",
+    keywords: ["random name generator", "name generator", "fake name", "character name", "random names"],
+    icon: "📛",
+    intro:
+      "Generate random full names for characters in a story, test data, sample accounts, usernames or games. Choose feminine, masculine or any names and generate as many as you need at once. It all runs in your browser using a built-in name list.",
+    howTo: [
+      "Choose a name style (any, feminine or masculine).",
+      "Set how many names to generate.",
+      "Click Generate and copy the results.",
+    ],
+    faqs: [
+      { q: "Are these real people?", a: "No. Names are assembled at random from common first and last names, so any resemblance to a real person is coincidental. Use them for characters, testing and placeholders." },
+      { q: "Can I generate many at once?", a: "Yes. Set the count to produce a whole list of names in one click." },
+      { q: "Is anything uploaded?", a: "No. Generation happens entirely in your browser." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "dice",
+    name: "Dice Roller",
+    h1: "Online Dice Roller",
+    title: "Dice Roller – Free Online Dice | UtilityHub",
+    description:
+      "Roll virtual dice online — d4, d6, d8, d10, d12, d20 or custom-sided — with multiple dice and an instant total. Great for board games and tabletop RPGs. Free and private.",
+    cardDescription: "Roll d6, d20 and more, with totals.",
+    category: "random-tools",
+    keywords: ["dice roller", "roll dice", "d20", "d6", "virtual dice", "tabletop dice"],
+    icon: "🎲",
+    intro:
+      "Roll virtual dice for board games, tabletop RPGs like D&D, or quick decisions. Pick the number of sides (d4, d6, d8, d10, d12, d20 or a custom value), roll several at once, and see each result plus the total. Rolls use a fair random source and run entirely in your browser.",
+    howTo: [
+      "Choose the die type and how many dice to roll.",
+      "Click Roll.",
+      "See each die's value and the combined total.",
+    ],
+    faqs: [
+      { q: "Which dice can I roll?", a: "The standard polyhedral set — d4, d6, d8, d10, d12 and d20 — plus a custom option for any number of sides." },
+      { q: "Are the rolls fair?", a: "Yes. Each die uses the browser's secure random generator, giving every face an equal chance." },
+      { q: "Can I roll multiple dice?", a: "Yes. Set the quantity to roll several dice at once and get their total." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "coin-flip",
+    name: "Coin Flip",
+    h1: "Flip a Coin Online",
+    title: "Coin Flip – Free Online Coin Toss | UtilityHub",
+    description:
+      "Flip a virtual coin online for a quick heads-or-tails decision, with a running tally of results. Fair, fast and private coin toss — no download needed.",
+    cardDescription: "Heads or tails, with a running tally.",
+    category: "random-tools",
+    keywords: ["coin flip", "flip a coin", "coin toss", "heads or tails", "coin flipper"],
+    icon: "🪙",
+    intro:
+      "Settle it with a virtual coin toss. Flip a fair coin for heads or tails, with a satisfying flip and a running tally of how many of each you've landed. Great for quick decisions and games. It runs entirely in your browser using a secure random source.",
+    howTo: [
+      "Click Flip.",
+      "See whether it landed heads or tails.",
+      "Keep flipping — the tally tracks your results.",
+    ],
+    faqs: [
+      { q: "Is the coin fair?", a: "Yes. Heads and tails each have an exact 50% chance, drawn from the browser's secure random generator." },
+      { q: "Does it track results?", a: "Yes. A running tally shows how many heads and tails you've flipped in this session." },
+      { q: "Is anything sent to a server?", a: "No. Everything happens in your browser." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "spin-wheel",
+    name: "Spin the Wheel",
+    h1: "Spin the Wheel — Random Picker",
+    title: "Spin the Wheel – Free Random Picker | UtilityHub",
+    description:
+      "Add your own options and spin a colorful wheel to pick a random winner. Perfect for giveaways, decisions, classrooms and games. Free, private, in-browser.",
+    cardDescription: "Add options and spin to pick a winner.",
+    category: "random-tools",
+    keywords: ["spin the wheel", "wheel of names", "random picker", "wheel spinner", "random wheel"],
+    icon: "🎡",
+    intro:
+      "Enter your own list of options and spin a colorful wheel to pick a random winner. Great for choosing who goes first, picking a giveaway winner, deciding where to eat, or classroom name-picking. Your options are remembered on this device, and the spin is fair and runs entirely in your browser.",
+    howTo: [
+      "Type your options, one per line.",
+      "Click Spin and watch the wheel.",
+      "The winner is highlighted when it stops.",
+    ],
+    faqs: [
+      { q: "Is the winner truly random?", a: "Yes. The landing position is chosen with the browser's secure random generator, so every option has an equal chance." },
+      { q: "How many options can I add?", a: "As many as you like, though a handful to a couple of dozen reads best on the wheel." },
+      { q: "Are my options saved?", a: "They're stored only in this browser so they're there next time — nothing is uploaded." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "team-generator",
+    name: "Team Generator",
+    h1: "Random Team Generator",
+    title: "Team Generator – Free Random Team Picker | UtilityHub",
+    description:
+      "Paste a list of names and split them into random, balanced teams — by number of teams or team size. Perfect for sports, games and group projects. Free and private.",
+    cardDescription: "Split a list of names into random teams.",
+    category: "random-tools",
+    keywords: ["team generator", "random teams", "group generator", "team picker", "split into teams"],
+    icon: "👥",
+    intro:
+      "Turn a list of people into fair, randomly shuffled teams. Paste your names, choose how many teams you want (or a fixed team size), and get balanced groups instantly. Ideal for sports, board games, group projects and classroom activities. Everything runs in your browser.",
+    howTo: [
+      "Paste your names, one per line.",
+      "Choose the number of teams or the size of each team.",
+      "Click Generate to shuffle everyone into teams.",
+    ],
+    faqs: [
+      { q: "Are the teams balanced?", a: "Yes. Names are shuffled randomly and distributed as evenly as possible, so team sizes differ by at most one." },
+      { q: "Can I set a team size instead?", a: "Yes. Switch to 'by team size' to make as many teams of that size as your list allows." },
+      { q: "Is my list uploaded?", a: "No. Shuffling happens entirely in your browser." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "decision-maker",
+    name: "Decision Maker",
+    h1: "Random Decision Maker",
+    title: "Decision Maker – Yes/No & Random Picker | UtilityHub",
+    description:
+      "Can't decide? Let a random decision maker choose for you — pick from your own options, get a yes/no answer, or a Magic 8-Ball reply. Free, instant and private.",
+    cardDescription: "Pick an option, yes/no, or Magic 8-Ball.",
+    category: "random-tools",
+    keywords: ["decision maker", "yes or no", "random picker", "magic 8 ball", "help me decide"],
+    icon: "🎱",
+    intro:
+      "Stuck on a choice? Let chance decide. Enter your own options and pick one at random, get a simple yes/no verdict, or ask a Magic 8-Ball for a classic fortune-teller answer. A fun, fair way to break a deadlock — and it all runs in your browser.",
+    howTo: [
+      "Choose a mode: pick from your list, yes/no, or Magic 8-Ball.",
+      "For the list mode, type your options one per line.",
+      "Click Decide to get your answer.",
+    ],
+    faqs: [
+      { q: "How does it choose?", a: "It uses the browser's secure random generator, giving each option (or yes/no) an equal chance." },
+      { q: "What is the Magic 8-Ball mode?", a: "It returns one of the classic Magic 8-Ball replies — like 'It is certain' or 'Ask again later' — for a bit of fun." },
+      { q: "Is anything tracked?", a: "No. Your options and decisions stay in your browser." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "random-color",
+    name: "Random Color Generator",
+    h1: "Random Color Generator",
+    title: "Random Color Generator – HEX, RGB & HSL | UtilityHub",
+    description:
+      "Generate random colors with HEX, RGB and HSL values, or a whole palette at once. Copy any format with a click. Great for design inspiration. Free and private.",
+    cardDescription: "Random colors & palettes in HEX/RGB/HSL.",
+    category: "random-tools",
+    keywords: ["random color", "random color generator", "hex color", "color palette generator", "random hex"],
+    icon: "🌈",
+    intro:
+      "Generate random colors for design inspiration, testing and fun. Get a single color or a whole palette, each shown with its HEX, RGB and HSL values — click any value to copy it. A quick way to discover unexpected color combinations. It all runs in your browser.",
+    howTo: [
+      "Click Generate for a new random color or palette.",
+      "Read the HEX, RGB and HSL values for each swatch.",
+      "Click a value to copy it to your clipboard.",
+    ],
+    faqs: [
+      { q: "What formats are shown?", a: "Each color shows HEX (e.g. #3AC0F2), RGB and HSL, and you can copy whichever your tool needs." },
+      { q: "Can I generate a palette?", a: "Yes. Switch to palette mode to generate several colors at once for a quick scheme." },
+      { q: "Is anything uploaded?", a: "No. Colors are generated in your browser." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "random-country",
+    name: "Random Country",
+    h1: "Random Country Generator",
+    title: "Random Country – Free Online Tool | UtilityHub",
+    description:
+      "Pick a random country of the world, complete with its flag and capital. Great for geography quizzes, travel inspiration and games. Free, instant and private.",
+    cardDescription: "Pick a random country, flag and capital.",
+    category: "random-tools",
+    keywords: ["random country", "random country generator", "country picker", "geography quiz", "random place"],
+    icon: "🗺️",
+    intro:
+      "Get a random country from around the world, shown with its flag and capital city. Perfect for geography quizzes, travel daydreaming, teaching, or picking a theme for the night. Draw one at a time or a small batch. Everything runs in your browser.",
+    howTo: [
+      "Click Generate to draw a random country.",
+      "See its flag, name and capital.",
+      "Generate again for a new one.",
+    ],
+    faqs: [
+      { q: "How many countries are included?", a: "A broad list of the world's sovereign countries, each shown with its flag emoji and capital city." },
+      { q: "Can I get more than one?", a: "Yes. Increase the count to draw a small batch of distinct countries at once." },
+      { q: "Is anything uploaded?", a: "No. The picker runs entirely in your browser." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "random-emoji",
+    name: "Random Emoji",
+    h1: "Random Emoji Generator",
+    title: "Random Emoji Generator – Free Online Tool | UtilityHub",
+    description:
+      "Get a random emoji — or a handful — with one click, and copy them instantly. A fun way to spice up messages, usernames and posts. Free, private, in-browser.",
+    cardDescription: "Get a random emoji (or a few) to copy.",
+    category: "random-tools",
+    keywords: ["random emoji", "random emoji generator", "emoji picker", "surprise emoji", "copy emoji"],
+    icon: "🎁",
+    intro:
+      "Feeling lucky? Generate a random emoji — or a small batch — and copy them with one tap. A playful way to add flair to messages, captions, usernames and bios, or just to see what pops up. It all runs in your browser; nothing is tracked.",
+    howTo: [
+      "Choose how many emojis you want.",
+      "Click Generate for a random pick.",
+      "Click any emoji, or Copy all, to copy them.",
+    ],
+    faqs: [
+      { q: "Where do the emojis come from?", a: "They're drawn at random from a large built-in pool of popular emojis using your browser's secure random generator." },
+      { q: "Will they look the same everywhere?", a: "Emojis render with each device's own emoji font, so the exact look varies by platform, but the character is identical." },
+      { q: "Is anything uploaded?", a: "No. Everything happens in your browser." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "random-quote",
+    name: "Random Quote",
+    h1: "Random Quote Generator",
+    title: "Random Quote Generator – Free Inspirational Quotes | UtilityHub",
+    description:
+      "Get a random inspirational, motivational or witty quote with its author, and copy it with one click. A quick dose of inspiration. Free, private, in-browser.",
+    cardDescription: "A random quote with its author, to copy.",
+    category: "random-tools",
+    keywords: ["random quote", "quote generator", "inspirational quotes", "motivational quotes", "random quotes"],
+    icon: "💬",
+    intro:
+      "Get a hand-picked random quote — inspirational, motivational or simply witty — complete with its author. Perfect for a daily lift, social posts, presentations or writing prompts. Copy any quote with a click and draw another whenever you like. It all runs in your browser.",
+    howTo: [
+      "Click New quote to draw a random one.",
+      "Read the quote and its author.",
+      "Click Copy to grab it for a post or note.",
+    ],
+    faqs: [
+      { q: "Where do the quotes come from?", a: "They're drawn from a curated built-in collection of well-known quotes, each attributed to its author." },
+      { q: "Can I copy a quote?", a: "Yes. One click copies the quote and author, ready to paste anywhere." },
+      { q: "Is anything uploaded?", a: "No. The generator runs entirely in your browser." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
   },
 ];
 
