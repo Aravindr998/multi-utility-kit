@@ -237,6 +237,262 @@ export const TOOLS: Tool[] = [
     privacyNote: PRIVACY_CLIENT,
     available: true,
   },
+  {
+    slug: "remove-background",
+    name: "Background Remover",
+    h1: "Free Background Remover",
+    title: "Background Remover – Remove Image Background Free | UtilityHub",
+    description:
+      "Remove the background from any image for free, right in your browser. An AI model runs on your device to cut out people, products and objects — no upload, no watermark.",
+    cardDescription: "AI background removal — runs on your device.",
+    category: "image-tools",
+    keywords: ["remove background", "background remover", "transparent background", "cut out image", "remove bg"],
+    icon: "🪄",
+    intro:
+      "Erase the background from a photo and get a transparent PNG in seconds. Unlike most tools, this one runs an AI segmentation model entirely inside your browser — your image is never uploaded to a server. It works best on clear subjects like people, products, pets and objects. The first run downloads the model (a few MB); after that it's cached.",
+    howTo: [
+      "Drop in an image (JPG, PNG, WebP or HEIC).",
+      "Click Remove background and wait for the on-device AI to run.",
+      "Preview the cut-out on a transparent checkerboard.",
+      "Download the result as a transparent PNG.",
+    ],
+    faqs: [
+      {
+        q: "Is my image uploaded anywhere?",
+        a: "No. The AI model runs locally in your browser. Only the model files are downloaded from a CDN — your actual image never leaves your device.",
+      },
+      {
+        q: "Why is the first run slow?",
+        a: "The first time you use it, the browser downloads the AI model (several MB) and warms it up. After that it's cached, so subsequent images are faster.",
+      },
+      {
+        q: "What images work best?",
+        a: "Photos with a clear subject and reasonable contrast against the background — people, products, animals and objects. Very busy or low-contrast scenes are harder.",
+      },
+      {
+        q: "Why does it use my device's CPU/GPU heavily?",
+        a: "Removing a background is a compute-intensive AI task. Because it runs on your machine (not a server), it uses local resources and can take a few seconds to a minute per image.",
+      },
+    ],
+    privacyNote:
+      "This tool removes backgrounds using an AI model that runs entirely in your browser. Your image is never uploaded — only the model files are fetched from a CDN.",
+    available: true,
+  },
+  {
+    slug: "blur-image",
+    name: "Image Blur",
+    h1: "Free Image Blur Tool",
+    title: "Blur Image – Free Online Image Tool | UtilityHub",
+    description:
+      "Blur an image online for free with an adjustable strength slider and a live preview. Great for backgrounds and softening photos. 100% private, in-browser.",
+    cardDescription: "Blur an image with an adjustable strength slider.",
+    category: "image-tools",
+    keywords: ["blur image", "image blur", "gaussian blur", "blur photo", "blur picture online"],
+    icon: "🌫️",
+    intro:
+      "Apply a smooth Gaussian blur to any image with a single slider and see the result update live before you download. Handy for creating soft backgrounds, de-emphasising detail or artistic effects. Everything is processed in your browser, so your image is never uploaded.",
+    howTo: [
+      "Drop in an image (JPG, PNG, WebP or HEIC).",
+      "Drag the blur strength slider and watch the live preview.",
+      "Click Apply blur.",
+      "Download the blurred image.",
+    ],
+    faqs: [
+      { q: "Can I blur just part of the image?", a: "This tool applies an even blur across the whole image. For hiding a face or plate, blur the image and crop, or use it together with the resizer/cropper." },
+      { q: "Does blurring reduce quality?", a: "Blurring intentionally softens detail. The output resolution matches your original; only sharpness is affected." },
+      { q: "Is my image uploaded?", a: "No. The blur is applied in your browser and nothing is sent to a server." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "add-watermark",
+    name: "Add Watermark",
+    h1: "Free Add Watermark to Image",
+    title: "Add Watermark – Free Online Image Tool | UtilityHub",
+    description:
+      "Add a text watermark to your images online for free. Control the text, size, colour, opacity and position, or tile it diagonally across the photo. Private, in-browser.",
+    cardDescription: "Stamp text watermarks with position & opacity control.",
+    category: "image-tools",
+    keywords: ["add watermark", "watermark image", "text watermark", "watermark photo", "copyright image"],
+    icon: "💧",
+    intro:
+      "Protect and brand your images with a text watermark. Type your text, then adjust the size, colour, opacity and position — or tile it diagonally across the whole image so it can't be cropped out. A live preview shows exactly how it will look. Everything runs in your browser.",
+    howTo: [
+      "Drop in an image (JPG, PNG, WebP or HEIC).",
+      "Enter your watermark text and pick a colour.",
+      "Adjust size, opacity and position, or turn on tiling.",
+      "Click Add watermark and download the result.",
+    ],
+    faqs: [
+      { q: "Can I tile the watermark across the image?", a: "Yes. Turn on 'Tile across image' to repeat the watermark diagonally over the entire photo, which is much harder to crop out." },
+      { q: "Can I use an image or logo as the watermark?", a: "This tool adds text watermarks. For a logo, you can add your brand name as styled text, or overlay a logo using the resizer and other tools." },
+      { q: "Is my image uploaded?", a: "No. The watermark is drawn in your browser and your image never leaves your device." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "rotate-image",
+    name: "Rotate Image",
+    h1: "Free Rotate Image Tool",
+    title: "Rotate Image – Free Online Image Tool | UtilityHub",
+    description:
+      "Rotate an image online for free by 90°, 180°, or any custom angle, with a live preview and optional transparent background. Fast, private, in-browser.",
+    cardDescription: "Rotate by 90°, 180° or any custom angle.",
+    category: "image-tools",
+    keywords: ["rotate image", "rotate photo", "turn image", "rotate picture online", "straighten image"],
+    icon: "🔁",
+    intro:
+      "Rotate any image left or right by 90°, flip it 180°, or dial in a precise custom angle to straighten a crooked photo. The canvas expands to fit the rotated image, and you can keep the exposed corners transparent (PNG/WebP) or fill them white. It all runs in your browser.",
+    howTo: [
+      "Drop in an image (JPG, PNG, WebP or HEIC).",
+      "Use the 90° buttons or the fine-angle slider.",
+      "Choose a transparent or white background for the corners.",
+      "Click Apply rotation and download.",
+    ],
+    faqs: [
+      { q: "Can I rotate by a custom angle?", a: "Yes. Use the fine-angle slider for any angle from 0–360°, which is perfect for straightening a slightly tilted horizon." },
+      { q: "What happens to the corners when I rotate at an angle?", a: "Rotating a rectangle exposes triangular corners. For PNG/WebP you can keep them transparent; for JPG they're filled white." },
+      { q: "Is my image uploaded?", a: "No. Rotation happens in your browser and nothing is sent to a server." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "flip-image",
+    name: "Flip Image",
+    h1: "Free Flip & Mirror Image Tool",
+    title: "Flip Image – Free Online Image Tool | UtilityHub",
+    description:
+      "Flip or mirror an image online for free — horizontally, vertically or both — with a live preview. Fast, private and in-browser with no watermarks.",
+    cardDescription: "Mirror an image horizontally or vertically.",
+    category: "image-tools",
+    keywords: ["flip image", "mirror image", "flip photo horizontally", "flip picture", "mirror photo"],
+    icon: "🔃",
+    intro:
+      "Flip an image to create a mirror effect — horizontally, vertically, or both at once. A live preview shows the result instantly. Useful for correcting selfies, creating symmetry and design work. Everything runs locally in your browser.",
+    howTo: [
+      "Drop in an image (JPG, PNG, WebP or HEIC).",
+      "Toggle horizontal and/or vertical flip.",
+      "Check the live preview.",
+      "Click Apply flip and download.",
+    ],
+    faqs: [
+      { q: "What is the difference between flip and rotate?", a: "Flipping mirrors the image across an axis (like a reflection), while rotating turns it around its centre. Use the rotate tool if you want to turn the image." },
+      { q: "Can I flip both directions at once?", a: "Yes. Enable both horizontal and vertical flip to rotate the image 180° via mirroring." },
+      { q: "Is my image uploaded?", a: "No. Flipping is done in your browser and nothing is sent to a server." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "image-to-pdf",
+    name: "Image to PDF",
+    h1: "Free Image to PDF Converter",
+    title: "Image to PDF – Free Online Converter | UtilityHub",
+    description:
+      "Convert JPG, PNG and other images to a PDF for free. Combine multiple images into one PDF, reorder pages, and choose page size, orientation and margins. Private, in-browser.",
+    cardDescription: "Combine images into a PDF with page & margin options.",
+    category: "image-tools",
+    keywords: ["image to pdf", "jpg to pdf", "png to pdf", "convert image to pdf", "photos to pdf"],
+    icon: "🖼️",
+    intro:
+      "Turn one or many images into a single PDF document. Add your photos, drag them into order, then pick A4/Letter or fit-to-image pages, choose orientation and set margins. The PDF is built entirely in your browser — your images are never uploaded.",
+    howTo: [
+      "Add one or more images (JPG, PNG, WebP or HEIC).",
+      "Reorder them with the up/down arrows.",
+      "Choose page size, orientation and margin.",
+      "Click Create PDF and download.",
+    ],
+    faqs: [
+      { q: "Can I combine several images into one PDF?", a: "Yes. Add as many images as you like — each becomes one page, in the order you arrange them." },
+      { q: "What does 'Fit to image' do?", a: "It makes each PDF page exactly match its image's proportions with no margins, so nothing is cropped or letterboxed." },
+      { q: "Are my images uploaded?", a: "No. The PDF is generated in your browser and your images never leave your device." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "color-picker",
+    name: "Color Picker",
+    h1: "Free Online Color Picker",
+    title: "Color Picker – Pick Colors from Image | UtilityHub",
+    description:
+      "Pick a colour from any image or choose one manually, and get instant HEX, RGB and HSL values you can copy. Free, private, in-browser colour picker & eyedropper.",
+    cardDescription: "Eyedrop colours from images; copy HEX, RGB & HSL.",
+    category: "image-tools",
+    keywords: ["color picker", "eyedropper", "pick color from image", "hex color picker", "color from photo"],
+    icon: "🎨",
+    intro:
+      "Grab the exact colour of any pixel in an image, or pick one with the colour wheel, and instantly get its HEX, RGB and HSL values to copy. A live cursor swatch and recent-colours list make sampling several colours quick. Everything runs in your browser.",
+    howTo: [
+      "Drop in an image, or use the manual colour picker at the top.",
+      "Move your cursor over the image to preview colours.",
+      "Click a pixel to lock its colour.",
+      "Copy the HEX, RGB or HSL value.",
+    ],
+    faqs: [
+      { q: "Can I pick a colour from a photo?", a: "Yes. Upload an image and click anywhere on it to sample that pixel's exact colour, shown as HEX, RGB and HSL." },
+      { q: "What colour formats do I get?", a: "Each picked colour is shown as HEX, RGB and HSL, and any of them can be copied with one click." },
+      { q: "Is my image uploaded?", a: "No. Colour sampling happens in your browser and your image never leaves your device." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "palette-generator",
+    name: "Color Palette Generator",
+    h1: "Free Color Palette Generator from Image",
+    title: "Color Palette Generator – Extract Colors from Image | UtilityHub",
+    description:
+      "Generate a colour palette from any image for free. Extract the dominant colours with HEX, RGB and HSL values, choose how many, and copy them as CSS variables. Private, in-browser.",
+    cardDescription: "Extract a dominant-colour palette from any image.",
+    category: "image-tools",
+    keywords: ["color palette generator", "extract colors from image", "image color palette", "dominant colors", "palette from photo"],
+    icon: "🎨",
+    intro:
+      "Pull a beautiful colour palette out of any image. This tool analyses the picture and extracts its dominant colours using median-cut quantisation, showing each as HEX, RGB and HSL. Choose how many colours you want and copy the whole palette as CSS variables. It all runs in your browser.",
+    howTo: [
+      "Drop in an image (JPG, PNG, WebP or HEIC).",
+      "Choose how many colours to extract with the slider.",
+      "Click any swatch to copy its HEX value.",
+      "Copy the full palette as CSS variables if you like.",
+    ],
+    faqs: [
+      { q: "How are the colours chosen?", a: "The image is analysed and its colours are grouped using median-cut quantisation, then the most prominent groups are returned as your palette." },
+      { q: "Can I change how many colours I get?", a: "Yes. Use the slider to extract anywhere from 3 to 12 colours." },
+      { q: "Is my image uploaded?", a: "No. The palette is computed in your browser and your image never leaves your device." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "exif-viewer",
+    name: "EXIF Viewer",
+    h1: "Free EXIF Data Viewer",
+    title: "EXIF Viewer – View Photo Metadata Online | UtilityHub",
+    description:
+      "View the EXIF metadata of your photos for free — camera model, lens, exposure, ISO, date taken and GPS location. Read privately in your browser, nothing uploaded.",
+    cardDescription: "Inspect camera, exposure & GPS metadata in photos.",
+    category: "image-tools",
+    keywords: ["exif viewer", "photo metadata", "exif data", "image metadata viewer", "check photo gps"],
+    icon: "🔍",
+    intro:
+      "See the hidden metadata stored inside your photos. Drop in a JPEG from a camera or phone and view the camera make and model, lens, exposure time, aperture, ISO, focal length, the date it was taken and even the GPS location if present. The file is read entirely in your browser and never uploaded.",
+    howTo: [
+      "Drop in a photo (JPEGs carry the most EXIF data).",
+      "Review the file details and full EXIF table.",
+      "If GPS data is present, open the location on a map.",
+    ],
+    faqs: [
+      { q: "Why does my image show no EXIF data?", a: "PNGs, WebP, screenshots and images exported by many apps have their metadata stripped. EXIF is most commonly found in JPEGs straight from cameras and phones." },
+      { q: "Can it show where a photo was taken?", a: "Yes, if the photo contains GPS coordinates. You'll see the latitude/longitude and a link to view the spot on a map." },
+      { q: "Is my photo uploaded?", a: "No. The metadata is read in your browser and your photo never leaves your device." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
   // ------------------------------- PDF -------------------------------
   {
     slug: "pdf-merge",
