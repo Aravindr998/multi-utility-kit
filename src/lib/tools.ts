@@ -1548,6 +1548,171 @@ export const TOOLS: Tool[] = [
     privacyNote: PRIVACY_CLIENT,
     available: true,
   },
+  {
+    slug: "pdf-rotate",
+    name: "Rotate PDF",
+    h1: "Free Rotate PDF Tool",
+    title: "Rotate PDF – Free Online PDF Tool | UtilityHub",
+    description:
+      "Rotate PDF pages online for free — turn all pages or just a selection 90°, 180° or 270°, and save the result permanently. Private, in-browser, no watermark.",
+    cardDescription: "Rotate all pages or a selection, and save it.",
+    category: "pdf-tools",
+    keywords: ["rotate pdf", "turn pdf pages", "rotate pdf online", "pdf rotate and save", "sideways pdf"],
+    icon: "🔄",
+    intro:
+      "Fix sideways or upside-down PDF pages. Rotate every page or only the ones you choose by 90° left, 90° right or 180°, and the rotation is saved into the file so it stays that way in every viewer. Everything runs in your browser — your document is never uploaded.",
+    howTo: [
+      "Upload your PDF.",
+      "Pick a rotation (90° right, 90° left or 180°).",
+      "Choose whether to rotate all pages or specific ones.",
+      "Click Rotate PDF and download.",
+    ],
+    faqs: [
+      { q: "Does the rotation stay after I save?", a: "Yes. The rotation is written into the PDF's page metadata, so the pages open the right way up in every viewer." },
+      { q: "Can I rotate only some pages?", a: "Yes. Choose 'Specific pages' and enter ranges like 1-3, 5 to rotate just those pages." },
+      { q: "Is my PDF uploaded?", a: "No. Rotation happens in your browser and your file never leaves your device." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "pdf-protect",
+    name: "Protect PDF",
+    h1: "Free Protect PDF with Password",
+    title: "Protect PDF – Add a Password Online Free | UtilityHub",
+    description:
+      "Password-protect a PDF for free, right in your browser. Encrypt your document so a password is required to open it — your file and password never leave your device.",
+    cardDescription: "Encrypt a PDF so a password is needed to open it.",
+    category: "pdf-tools",
+    keywords: ["protect pdf", "password protect pdf", "encrypt pdf", "add password to pdf", "lock pdf"],
+    icon: "🔒",
+    intro:
+      "Add a password to a PDF so only people with the password can open it. The file is encrypted entirely inside your browser using strong encryption — your document and your password are never uploaded to any server. Choose a password, confirm it, and download the protected file.",
+    howTo: [
+      "Upload the PDF you want to protect.",
+      "Enter a password and confirm it.",
+      "Click Protect PDF.",
+      "Download the encrypted, password-protected file.",
+    ],
+    faqs: [
+      { q: "Is the encryption secure?", a: "Yes. The PDF is encrypted with a standard PDF encryption scheme that requires your password to open. Choose a strong password and keep it safe." },
+      { q: "Can you recover my password if I forget it?", a: "No. The protection happens locally and we never see your file or password, so a forgotten password cannot be recovered. Store it somewhere safe." },
+      { q: "Is my file uploaded?", a: "No. Encryption runs in your browser and your document never leaves your device." },
+    ],
+    privacyNote:
+      "This tool encrypts your PDF entirely in your browser. Your file and password are never uploaded to any server.",
+    available: true,
+  },
+  {
+    slug: "pdf-unlock",
+    name: "Unlock PDF",
+    h1: "Free Unlock PDF (Remove Password)",
+    title: "Unlock PDF – Remove PDF Password Online Free | UtilityHub",
+    description:
+      "Remove the password from a PDF you own for free, in your browser. Enter the current password to decrypt the file and save a version that opens without one. Private and secure.",
+    cardDescription: "Remove a password from a PDF you can open.",
+    category: "pdf-tools",
+    keywords: ["unlock pdf", "remove pdf password", "decrypt pdf", "pdf password remover", "unprotect pdf"],
+    icon: "🔓",
+    intro:
+      "Remove password protection from a PDF so it opens freely. Enter the current password and the file is decrypted in your browser, then saved without a password. It also handles PDFs that merely restrict permissions. Only unlock documents you own or are authorised to modify — your file and password never leave your device.",
+    howTo: [
+      "Upload the protected PDF.",
+      "Enter its current password (leave blank for permission-only locks).",
+      "Click Unlock PDF.",
+      "Download the unlocked file.",
+    ],
+    faqs: [
+      { q: "Do I need to know the password?", a: "Yes, for files that require a password to open. You must be able to open the PDF yourself — this tool removes protection from documents you're authorised to unlock, it doesn't crack unknown passwords." },
+      { q: "What about PDFs that only restrict printing or copying?", a: "Those permission-only locks can often be removed without a password — just leave the password field blank and unlock." },
+      { q: "Is my file uploaded?", a: "No. Decryption runs in your browser and your document and password never leave your device." },
+    ],
+    privacyNote:
+      "This tool decrypts your PDF entirely in your browser. Your file and password are never uploaded to any server.",
+    available: true,
+  },
+  {
+    slug: "pdf-extract-images",
+    name: "Extract PDF Images",
+    h1: "Free Extract Images from PDF",
+    title: "Extract Images from PDF – Free Online PDF Tool | UtilityHub",
+    description:
+      "Extract and download all embedded images from a PDF for free. Pull out the original photos and graphics as PNG files, individually or as a ZIP. Private, in-browser.",
+    cardDescription: "Pull embedded photos & graphics out of a PDF.",
+    category: "pdf-tools",
+    keywords: ["extract images from pdf", "pdf image extractor", "save pdf images", "get images from pdf", "pdf to images"],
+    icon: "🖼️",
+    intro:
+      "Pull the embedded images out of a PDF. This tool scans each page for its picture content and saves them as PNG files that you can download one by one or all at once as a ZIP. Unlike converting pages to images, this recovers the actual embedded graphics. Everything runs in your browser.",
+    howTo: [
+      "Upload your PDF.",
+      "Click Extract images and let it scan every page.",
+      "Preview the images that were found.",
+      "Save individual images or download them all as a ZIP.",
+    ],
+    faqs: [
+      { q: "How is this different from PDF to JPG?", a: "PDF to JPG renders each whole page as an image. This tool extracts the individual images that were embedded inside the PDF, at their original resolution." },
+      { q: "Why did it find no images?", a: "A PDF made purely of text and vector graphics has no embedded raster images to extract. Scanned PDFs, where each page is one big image, will return those page images." },
+      { q: "Are my files uploaded?", a: "No. The extraction runs entirely in your browser and your PDF never leaves your device." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "pdf-ocr",
+    name: "PDF OCR",
+    h1: "Free PDF OCR – Extract Text from Scans",
+    title: "PDF OCR – Extract Text from Scanned PDFs Online | UtilityHub",
+    description:
+      "Run OCR on scanned PDFs and images for free, right in your browser. Extract selectable, copyable text from scans and photos in several languages — nothing is uploaded.",
+    cardDescription: "Recognise text in scanned PDFs & images (on-device).",
+    category: "pdf-tools",
+    keywords: ["pdf ocr", "ocr online", "scanned pdf to text", "extract text from image", "image to text"],
+    icon: "🔎",
+    intro:
+      "Turn a scanned PDF or a photo of a document into selectable text. This tool runs an OCR engine entirely in your browser to recognise the words on the page, so your file is never uploaded — only the engine is downloaded on first use. Supports several languages and lets you copy or download the recognised text.",
+    howTo: [
+      "Upload a scanned PDF or an image.",
+      "Choose the document's language.",
+      "Click Extract text and wait for the on-device engine to run.",
+      "Copy the recognised text or download it as a .txt file.",
+    ],
+    faqs: [
+      { q: "Is my document uploaded?", a: "No. The OCR engine runs locally in your browser. Only the engine and language data are downloaded from a CDN — your file never leaves your device." },
+      { q: "Why is the first run slow?", a: "The first time you use it, the browser downloads the OCR engine and language data (a few MB) and warms it up. After that it's cached, and recognition is faster." },
+      { q: "How accurate is it?", a: "Accuracy depends on scan quality. Clear, high-resolution, straight scans in the selected language give the best results; blurry or skewed pages are harder." },
+    ],
+    privacyNote:
+      "This tool runs OCR using an engine that works entirely in your browser. Your file is never uploaded — only the engine and language data are fetched from a CDN.",
+    available: true,
+  },
+  {
+    slug: "pdf-page-numbers",
+    name: "Add Page Numbers to PDF",
+    h1: "Free Add Page Numbers to PDF",
+    title: "Add Page Numbers to PDF – Free Online PDF Tool | UtilityHub",
+    description:
+      "Add page numbers to a PDF online for free. Choose the position, number format, starting number and font size, then download. 100% private, in your browser.",
+    cardDescription: "Stamp page numbers with position & format options.",
+    category: "pdf-tools",
+    keywords: ["add page numbers to pdf", "pdf page numbers", "number pdf pages", "insert page numbers pdf", "paginate pdf"],
+    icon: "🔢",
+    intro:
+      "Add page numbers to every page of a PDF. Pick where they appear (any corner or centre, top or bottom), the format (1, 1 / 10, or Page 1 of 10), the starting number and the font size. The numbers are drawn straight onto the pages in your browser — nothing is uploaded.",
+    howTo: [
+      "Upload your PDF.",
+      "Choose the position and number format.",
+      "Set the starting number and font size if needed.",
+      "Click Add page numbers and download.",
+    ],
+    faqs: [
+      { q: "Can I start numbering from a specific number?", a: "Yes. Set 'Start at' to any number — handy when your document has a cover page or continues from another file." },
+      { q: "Where can the numbers go?", a: "Any of six positions: bottom or top, aligned left, centre or right." },
+      { q: "Is my PDF uploaded?", a: "No. The page numbers are added in your browser and your file never leaves your device." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
   // ------------------------------- MEDIA -------------------------------
   {
     slug: "video-frame-extractor",
