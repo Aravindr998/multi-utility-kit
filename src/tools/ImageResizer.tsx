@@ -273,7 +273,7 @@ export default function ImageResizer() {
                 </button>
               </div>
               <div
-                className="relative mx-auto w-full select-none overflow-hidden rounded-lg"
+                className="relative mx-auto w-full select-none overflow-hidden"
                 style={{ maxWidth: 520, background: "var(--surface-2)" }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -286,14 +286,19 @@ export default function ImageResizer() {
                 />
                 {box && (
                   <>
-                    {/* Dim outside the crop region */}
-                    <div
-                      className="pointer-events-none absolute inset-0"
-                      style={{
-                        boxShadow: `0 0 0 9999px rgba(0,0,0,0.5)`,
-                        clipPath: `polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 0, ${box.left} ${box.top}, ${box.left} calc(${box.top} + ${box.height}), calc(${box.left} + ${box.width}) calc(${box.top} + ${box.height}), calc(${box.left} + ${box.width}) ${box.top}, ${box.left} ${box.top})`,
-                      }}
-                    />
+                    {/* Dim outside the crop region with four plain rectangles.
+                        Avoids a huge box-shadow spread + per-frame clip-path,
+                        which OOM-crashes the iOS WebKit renderer while dragging. */}
+                    <div className="pointer-events-none absolute inset-0" aria-hidden>
+                      {/* top */}
+                      <div className="absolute bg-black/50" style={{ left: 0, right: 0, top: 0, height: box.top }} />
+                      {/* bottom */}
+                      <div className="absolute bg-black/50" style={{ left: 0, right: 0, top: `calc(${box.top} + ${box.height})`, bottom: 0 }} />
+                      {/* left */}
+                      <div className="absolute bg-black/50" style={{ left: 0, top: box.top, width: box.left, height: box.height }} />
+                      {/* right */}
+                      <div className="absolute bg-black/50" style={{ left: `calc(${box.left} + ${box.width})`, right: 0, top: box.top, height: box.height }} />
+                    </div>
                     {/* Crop box */}
                     <div
                       className="absolute touch-none"
@@ -317,31 +322,39 @@ export default function ImageResizer() {
                         <div className="absolute inset-x-0 top-1/3 h-px bg-white/30" />
                         <div className="absolute inset-x-0 top-2/3 h-px bg-white/30" />
                       </div>
-                      {/* Resize handles */}
+                      {/* Resize handles. The interactive element is a large,
+                          transparent hit area (touch-friendly); the small visual
+                          dot is centered inside it. */}
                       {HANDLES.map((hnd) => {
+                        const HIT = 28; // touch target size in px
+                        const off = -HIT / 2; // center the hit area on the edge/corner
                         const pos: React.CSSProperties = { position: "absolute", cursor: HANDLE_CURSOR[hnd] };
-                        if (hnd.includes("n")) pos.top = -6;
-                        if (hnd.includes("s")) pos.bottom = -6;
-                        if (hnd.includes("w")) pos.left = -6;
-                        if (hnd.includes("e")) pos.right = -6;
-                        if (hnd === "n" || hnd === "s") { pos.left = "50%"; pos.marginLeft = -6; }
-                        if (hnd === "e" || hnd === "w") { pos.top = "50%"; pos.marginTop = -6; }
+                        if (hnd.includes("n")) pos.top = off;
+                        if (hnd.includes("s")) pos.bottom = off;
+                        if (hnd.includes("w")) pos.left = off;
+                        if (hnd.includes("e")) pos.right = off;
+                        if (hnd === "n" || hnd === "s") { pos.left = "50%"; pos.marginLeft = off; }
+                        if (hnd === "e" || hnd === "w") { pos.top = "50%"; pos.marginTop = off; }
                         return (
                           <div
                             key={hnd}
-                            className="touch-none rounded-sm"
-                            style={{
-                              ...pos,
-                              width: 12,
-                              height: 12,
-                              background: "var(--brand)",
-                              border: "2px solid var(--on-brand)",
-                            }}
+                            className="flex touch-none items-center justify-center"
+                            style={{ ...pos, width: HIT, height: HIT }}
                             data-kind={hnd}
                             onPointerDown={onPointerDown}
                             onPointerMove={onPointerMove}
                             onPointerUp={onPointerUp}
-                          />
+                          >
+                            <div
+                              className="pointer-events-none rounded-sm"
+                              style={{
+                                width: 12,
+                                height: 12,
+                                background: "var(--brand)",
+                                border: "2px solid var(--on-brand)",
+                              }}
+                            />
+                          </div>
                         );
                       })}
                     </div>
@@ -362,7 +375,7 @@ export default function ImageResizer() {
               >
                 <canvas
                   ref={previewCanvas}
-                  className="max-h-[220px] max-w-full rounded"
+                  className="max-h-[220px] max-w-full"
                   style={{ boxShadow: "0 1px 4px rgba(0,0,0,0.15)" }}
                 />
               </div>
@@ -421,7 +434,7 @@ export default function ImageResizer() {
           onReset={reset}
           preview={
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={result.url} alt="Resized preview" className="max-h-64 w-full rounded-lg object-contain" style={{ background: "var(--surface-2)" }} />
+            <img src={result.url} alt="Resized preview" className="max-h-64 w-full object-contain" style={{ background: "var(--surface-2)" }} />
           }
         />
       )}
