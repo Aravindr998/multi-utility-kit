@@ -201,6 +201,7 @@ const COMPONENTS: Record<string, ComponentType> = {
   // Savings
   "savings-goal-calculator": dynamic(() => import("./SavingsGoal"), { ssr: false, loading: Loading }),
   "emergency-fund-calculator": dynamic(() => import("./EmergencyFund"), { ssr: false, loading: Loading }),
+  "city-emergency-fund-calculator": dynamic(() => import("./CityEmergencyFund"), { ssr: false, loading: Loading }),
   "retirement-corpus-calculator": dynamic(() => import("./RetirementCorpus"), { ssr: false, loading: Loading }),
   "fire-calculator": dynamic(() => import("./FireCalc"), { ssr: false, loading: Loading }),
   "coast-fire-calculator": dynamic(() => import("./CoastFire"), { ssr: false, loading: Loading }),

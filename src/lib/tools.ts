@@ -4141,6 +4141,42 @@ export const TOOLS: Tool[] = [
     available: true,
   },
   {
+    slug: "city-emergency-fund-calculator",
+    name: "City Emergency Fund Calculator",
+    h1: "Emergency Fund Calculator by City",
+    title: "Emergency Fund Calculator by City & Cost of Living | UtilityHub",
+    description:
+      "Work out how big your emergency fund should be based on where you live. Search any city in the world, and the calculator estimates local monthly essentials in your currency, then sizes 3–12 months of cover.",
+    cardDescription: "Emergency fund sized to any city's cost of living.",
+    category: "savings",
+    keywords: [
+      "emergency fund calculator by city",
+      "cost of living emergency fund",
+      "emergency fund calculator international",
+      "how much emergency fund",
+      "emergency savings by city",
+    ],
+    icon: "🌍",
+    intro:
+      "How much emergency fund you need depends on what life costs where you live — rent, food, transport and bills differ hugely between cities. Search for any city in the world (or detect it from your location) and this calculator estimates the essential monthly cost of living there, scales it to your household size, and sizes a 3–12 month emergency fund. Amounts are shown in your local currency using live exchange rates, and every figure is editable so you can match your own budget.",
+    howTo: [
+      "Search for your city, tap a popular one, or use your location.",
+      "Choose your household size and how many months of cover you want.",
+      "The tool estimates your monthly essentials — adjust it if needed.",
+      "Add current savings and a monthly contribution to see your gap and timeline.",
+    ],
+    faqs: [
+      { q: "Which cities are covered?", a: "You can search for essentially any city on Earth. Major cities use a hand-curated cost-of-living estimate; smaller places are estimated from their country's typical costs adjusted for city size. In every case the monthly figure is editable, so you can fine-tune it to your actual budget." },
+      { q: "How is the cost of living estimated?", a: "It reflects essential monthly living costs (housing, food, utilities and local transport) for one person, scaled to your household size and converted to your currency at live exchange rates. These are approximations, not live local prices — edit the monthly expenses for a precise result." },
+      { q: "Does it work outside the US or India?", a: "Yes. It works worldwide and shows amounts in any world currency. Selecting a city automatically switches to that country's currency, and you can override the currency at any time." },
+      { q: "How does 'Use my location' work?", a: "With your permission, your browser shares your approximate coordinates, which a free public geocoding service turns into a city name to pre-select your city. Your location is used only for that lookup and is never stored." },
+      { q: "How many months of expenses should I save?", a: "Three to six months of essentials is a common guideline; people with variable income, dependents or a single earner often aim for six to twelve. Set the months of cover to match how stable your income is." },
+    ],
+    privacyNote:
+      "Your figures stay in your browser. To show local currency we request public exchange-rate data, and 'Use my location' sends your coordinates to a public geocoding service only to look up your city — neither receives your financial inputs.",
+    available: true,
+  },
+  {
     slug: "retirement-corpus-calculator",
     name: "Retirement Corpus Calculator",
     h1: "Free Retirement Corpus Calculator",
