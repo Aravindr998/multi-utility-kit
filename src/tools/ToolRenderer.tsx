@@ -210,6 +210,13 @@ const COMPONENTS: Record<string, ComponentType> = {
   "financial-independence-calculator": dynamic(() => import("./FinancialIndependence"), { ssr: false, loading: Loading }),
   "college-savings-calculator": dynamic(() => import("./CollegeSavings"), { ssr: false, loading: Loading }),
   "vacation-savings-calculator": dynamic(() => import("./VacationSavings"), { ssr: false, loading: Loading }),
+  // Study
+  "flashcards": dynamic(() => import("./Flashcards"), { ssr: false, loading: Loading }),
+  "pomodoro-timer": dynamic(() => import("./PomodoroTimer"), { ssr: false, loading: Loading }),
+  "gpa-calculator": dynamic(() => import("./GpaCalculator"), { ssr: false, loading: Loading }),
+  "citation-generator": dynamic(() => import("./CitationGenerator"), { ssr: false, loading: Loading }),
+  "equation-solver": dynamic(() => import("./EquationSolver"), { ssr: false, loading: Loading }),
+  "periodic-table": dynamic(() => import("./PeriodicTable"), { ssr: false, loading: Loading }),
 };
 
 export default function ToolRenderer({ slug }: { slug: string }) {

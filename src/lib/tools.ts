@@ -87,6 +87,13 @@ export const CATEGORIES: Category[] = [
     icon: "⚡",
   },
   {
+    slug: "study-tools",
+    name: "Study",
+    description:
+      "Flashcards, a Pomodoro timer, GPA and citation helpers, an equation solver and an interactive periodic table — everything for focused study.",
+    icon: "📚",
+  },
+  {
     slug: "time-tools",
     name: "Time",
     description:
@@ -4999,6 +5006,175 @@ export const TOOLS: Tool[] = [
     faqs: [
       { q: "Is the comparison line-based?", a: "Yes — it computes a line-level diff, ideal for code and structured text." },
       { q: "Is my text uploaded?", a: "No. The diff is computed entirely in your browser." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  // ------------------------------- STUDY -------------------------------
+  {
+    slug: "flashcards",
+    name: "Flashcards",
+    h1: "Free Flashcards Maker",
+    title: "Flashcards Maker – Free Online Study Cards | UtilityHub",
+    description:
+      "Create, flip and study flashcard decks online for free. Build your own decks, shuffle them, track what you know and revise — all saved privately in your browser.",
+    cardDescription: "Build and study flip-card decks with shuffle & progress.",
+    category: "study-tools",
+    keywords: ["flashcards", "flashcard maker", "study cards", "revision cards", "flash cards online"],
+    icon: "🃏",
+    intro:
+      "Make your own flashcard decks and study them right in your browser. Add cards with a question on the front and the answer on the back, flip through them, shuffle the order and mark each card as 'known' to focus on what you still need to learn. Your decks are saved privately on your device — no account, no upload.",
+    howTo: [
+      "Create a deck and give it a name.",
+      "Add cards with a term on the front and its definition on the back.",
+      "Enter study mode, click a card to flip it, then mark it Known or Again.",
+      "Shuffle any time and repeat until you've learned the whole deck.",
+    ],
+    faqs: [
+      { q: "Are my flashcards saved?", a: "Yes. Your decks are stored in your browser's local storage, so they're still here when you come back on the same device and browser." },
+      { q: "Are my decks uploaded to a server?", a: "No. Everything is saved locally on your device — your study material never leaves your browser." },
+      { q: "Can I study in a random order?", a: "Yes. Use the Shuffle button to randomize the deck each study session." },
+      { q: "Will clearing my browser data delete my decks?", a: "Yes — because decks are stored locally, clearing site data or using private browsing will remove them. Export important decks elsewhere if you need a backup." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "pomodoro-timer",
+    name: "Pomodoro Timer",
+    h1: "Free Pomodoro Timer",
+    title: "Pomodoro Timer – Free Online Focus Timer | UtilityHub",
+    description:
+      "A free online Pomodoro timer to study and work in focused 25-minute sprints with short and long breaks. Customizable intervals, session tracking and a gentle alarm.",
+    cardDescription: "Focus in 25-min sprints with breaks and a chime.",
+    category: "study-tools",
+    keywords: ["pomodoro timer", "focus timer", "study timer", "25 minute timer", "pomodoro technique"],
+    icon: "🍅",
+    intro:
+      "Use the Pomodoro Technique to stay focused: work for 25 minutes, take a 5-minute break, and after four rounds enjoy a longer break. This timer runs entirely in your browser, plays a gentle chime when each interval ends, and lets you customize the work and break lengths to fit how you study.",
+    howTo: [
+      "Optionally adjust the focus, short-break and long-break lengths.",
+      "Press Start to begin a focus session.",
+      "When the chime sounds, take the suggested break.",
+      "After four focus sessions you get a longer break — then repeat.",
+    ],
+    faqs: [
+      { q: "What is the Pomodoro Technique?", a: "It's a time-management method that breaks work into focused 25-minute intervals ('pomodoros') separated by short breaks, with a longer break after every four intervals." },
+      { q: "Will the timer keep running if I switch tabs?", a: "Yes. The countdown is based on real time, so it stays accurate even if the tab is in the background." },
+      { q: "Does it make a sound?", a: "Yes — a short chime plays when each interval ends. Your browser may require you to interact with the page first before it can play audio." },
+      { q: "Can I change the interval lengths?", a: "Yes. You can set custom focus, short-break and long-break durations to match your preferred rhythm." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "gpa-calculator",
+    name: "GPA Calculator",
+    h1: "Free GPA Calculator",
+    title: "GPA Calculator – Free Online Grade Point Average | UtilityHub",
+    description:
+      "Calculate your GPA online for free. Add your courses, grades and credit hours to get your weighted grade point average on a 4.0 scale. Fast, private and in-browser.",
+    cardDescription: "Work out your weighted GPA from grades & credits.",
+    category: "study-tools",
+    keywords: ["gpa calculator", "grade point average", "college gpa", "weighted gpa", "4.0 scale calculator"],
+    icon: "🎓",
+    intro:
+      "Work out your grade point average in seconds. Enter each course with its letter grade and number of credit hours, and this calculator returns your credit-weighted GPA on the standard 4.0 scale. Everything is calculated in your browser — nothing is uploaded.",
+    howTo: [
+      "Add a row for each course.",
+      "Pick the letter grade you earned.",
+      "Enter the credit hours for that course.",
+      "Your weighted GPA updates automatically as you type.",
+    ],
+    faqs: [
+      { q: "How is GPA calculated?", a: "Each letter grade maps to a grade point (A = 4.0, B = 3.0, and so on). Your GPA is the sum of (grade points × credits) divided by the total credits." },
+      { q: "Which grade scale does this use?", a: "It uses the common US 4.0 scale with plus/minus grades. A = 4.0, A− = 3.7, B+ = 3.3, and so on down to F = 0.0." },
+      { q: "Are my grades uploaded anywhere?", a: "No. The calculation runs entirely in your browser and nothing is stored or sent to a server." },
+      { q: "Can I calculate an unweighted GPA?", a: "Set every course to the same number of credits (for example 1) and the result is a simple, unweighted average of your grade points." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "citation-generator",
+    name: "Citation Generator",
+    h1: "Free Citation Generator",
+    title: "Citation Generator – APA, MLA & Chicago | UtilityHub",
+    description:
+      "Generate citations in APA, MLA and Chicago styles for free. Fill in the author, title, date and source details to build a formatted reference you can copy. Private and in-browser.",
+    cardDescription: "Build APA, MLA & Chicago references you can copy.",
+    category: "study-tools",
+    keywords: ["citation generator", "apa citation", "mla citation", "chicago citation", "reference generator", "bibliography maker"],
+    icon: "📑",
+    intro:
+      "Create properly formatted references for your essays and papers. Choose APA, MLA or Chicago style, enter the details of your source — book, website or journal article — and copy the finished citation. It all runs in your browser, so nothing you type is uploaded.",
+    howTo: [
+      "Pick a citation style: APA, MLA or Chicago.",
+      "Choose the source type — website, book or journal article.",
+      "Fill in the author, title, date and other details you have.",
+      "Copy the formatted citation into your bibliography.",
+    ],
+    faqs: [
+      { q: "Which citation styles are supported?", a: "APA (7th edition), MLA (9th edition) and Chicago (notes-bibliography) styles are supported for websites, books and journal articles." },
+      { q: "Is this a substitute for checking my institution's guidelines?", a: "It produces a well-formatted starting point, but citation styles have many edge cases. Always double-check against your assignment or style guide." },
+      { q: "Are the details I enter uploaded?", a: "No. The citation is built entirely in your browser — nothing you type leaves your device." },
+      { q: "What if I don't have every field?", a: "Fill in what you have. The generator omits missing optional fields and formats the rest as best it can." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "equation-solver",
+    name: "Equation Solver",
+    h1: "Free Equation Solver",
+    title: "Equation Solver – Linear & Quadratic | UtilityHub",
+    description:
+      "Solve linear and quadratic equations online for free. Get step-by-step solutions and real roots for equations like ax + b = 0 and ax² + bx + c = 0. Private, in-browser.",
+    cardDescription: "Solve linear & quadratic equations with steps.",
+    category: "study-tools",
+    keywords: ["equation solver", "quadratic equation solver", "linear equation solver", "solve for x", "quadratic formula"],
+    icon: "🧮",
+    intro:
+      "Solve linear equations (ax + b = 0) and quadratic equations (ax² + bx + c = 0) and see how the answer is reached. Enter the coefficients and the solver returns the root or roots — including complex roots for quadratics — along with the working. Calculations happen in your browser.",
+    howTo: [
+      "Choose whether your equation is linear or quadratic.",
+      "Enter the coefficients (a, b and, for quadratics, c).",
+      "Read the solution and the step-by-step working.",
+      "Adjust the coefficients to explore how the roots change.",
+    ],
+    faqs: [
+      { q: "What kinds of equations can it solve?", a: "It solves single-variable linear equations of the form ax + b = 0 and quadratic equations of the form ax² + bx + c = 0." },
+      { q: "Does it handle complex roots?", a: "Yes. When a quadratic's discriminant is negative, the solver reports the pair of complex conjugate roots." },
+      { q: "Does it show the steps?", a: "Yes — it shows the discriminant, the formula used and the resulting root(s) so you can follow the method." },
+      { q: "Is my input uploaded?", a: "No. All solving is done in your browser with JavaScript; nothing is sent to a server." },
+    ],
+    privacyNote: PRIVACY_CLIENT,
+    available: true,
+  },
+  {
+    slug: "periodic-table",
+    name: "Periodic Table",
+    h1: "Interactive Periodic Table",
+    title: "Interactive Periodic Table of Elements | UtilityHub",
+    description:
+      "Explore an interactive periodic table of the elements for free. Click any element to see its atomic number, symbol, atomic mass, group and category. Fast, private and in-browser.",
+    cardDescription: "Explore all 118 elements — click for details.",
+    category: "study-tools",
+    keywords: ["periodic table", "periodic table of elements", "interactive periodic table", "chemistry elements", "atomic number"],
+    icon: "⚗️",
+    intro:
+      "Browse the full periodic table of the 118 known elements. Elements are colour-coded by category, and clicking any tile reveals its atomic number, symbol, name, atomic mass and group. Use the search box to jump straight to an element by name or symbol. Everything runs in your browser.",
+    howTo: [
+      "Scan the table — elements are grouped and colour-coded by category.",
+      "Search by element name, symbol or atomic number to highlight a match.",
+      "Click an element to open its details panel.",
+      "Read its atomic number, mass, category and position.",
+    ],
+    faqs: [
+      { q: "How many elements are included?", a: "All 118 confirmed elements, from hydrogen (1) to oganesson (118), laid out in the standard periodic table arrangement." },
+      { q: "What information does each element show?", a: "Atomic number, chemical symbol, full name, standard atomic mass and element category (such as noble gas or transition metal)." },
+      { q: "Can I search for an element?", a: "Yes. Type a name, symbol or atomic number and the matching element is highlighted." },
+      { q: "Is anything uploaded?", a: "No. The element data ships with the page and everything runs locally in your browser." },
     ],
     privacyNote: PRIVACY_CLIENT,
     available: true,
