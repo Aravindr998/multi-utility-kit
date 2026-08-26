@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import FileDropzone from "@/components/FileDropzone";
 import ResultCard from "@/components/ResultCard";
 import { downloadBlob } from "@/lib/format";
+import { readNumberParam } from "@/lib/toolParams";
 
 const PRESETS: { label: string; w: number; h: number }[] = [
   { label: "YouTube thumbnail", w: 1280, h: 720 },
@@ -50,6 +51,11 @@ export default function ImageResizer() {
   const imgElRef = useRef<HTMLImageElement | null>(null); // rendered <img> in preview
   const previewCanvas = useRef<HTMLCanvasElement | null>(null);
   const drag = useRef<DragState | null>(null);
+  // Command-bar deep link (?w=&h=): apply once to the first image loaded.
+  const pendingDims = useRef<{ w: number | null; h: number | null } | null>({
+    w: readNumberParam("w"),
+    h: readNumberParam("h"),
+  });
 
   const reset = () => {
     setFile(null);
@@ -76,8 +82,20 @@ export default function ImageResizer() {
       const h = img.naturalHeight;
       setNatural({ w, h });
       setCrop({ x: 0, y: 0, w, h });
-      setWidth(w);
-      setHeight(h);
+      // Honor requested dimensions from the command bar, scaling to keep aspect
+      // when only one side is given; otherwise fall back to the natural size.
+      const req = pendingDims.current;
+      pendingDims.current = null;
+      if (req && (req.w || req.h)) {
+        const tw = req.w ?? (req.h ? Math.round((req.h / h) * w) : w);
+        const th = req.h ?? (req.w ? Math.round((req.w / w) * h) : h);
+        setWidth(tw);
+        setHeight(th);
+        if (req.w && req.h) setLock(false);
+      } else {
+        setWidth(w);
+        setHeight(h);
+      }
     } catch {
       setError("Could not read this image.");
     }

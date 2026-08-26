@@ -11,18 +11,10 @@ export default function SearchableToolGrid() {
   const inputRef = useRef<HTMLInputElement>(null);
   const cats = activeCategories();
 
-  // ⌘K / Ctrl+K focuses the search.
+  // ⌘K / Ctrl+K opens the global command bar (see CommandBar); this in-page
+  // box is a plain filter. Detect the platform for the keyboard hint only.
   useEffect(() => {
     setIsMac(/Mac|iPhone|iPad/i.test(navigator.platform || navigator.userAgent));
-    const onKey = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
-        e.preventDefault();
-        inputRef.current?.focus();
-        inputRef.current?.scrollIntoView({ block: "center", behavior: "smooth" });
-      }
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
   }, []);
 
   const q = query.trim().toLowerCase();

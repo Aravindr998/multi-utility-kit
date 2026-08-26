@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import QRCode from "qrcode";
 import { downloadBlob } from "@/lib/format";
+import { readParam } from "@/lib/toolParams";
 
 type Mode = "url" | "text" | "wifi" | "vcard";
 type DotStyle = "square" | "rounded" | "dots" | "classy";
@@ -128,9 +129,12 @@ const CANVAS_SIZE = 1024;
 const QUIET = 4; // quiet-zone modules
 
 export default function QrCodeGenerator() {
-  const [mode, setMode] = useState<Mode>("url");
-  const [url, setUrl] = useState("https://");
-  const [text, setText] = useState("");
+  // Command-bar deep link (?text=…): route a URL to URL mode, else to text mode.
+  const prefill = readParam("text");
+  const prefillIsUrl = !!prefill && /^https?:\/\//i.test(prefill);
+  const [mode, setMode] = useState<Mode>(prefill && !prefillIsUrl ? "text" : "url");
+  const [url, setUrl] = useState(prefillIsUrl ? prefill! : "https://");
+  const [text, setText] = useState(prefill && !prefillIsUrl ? prefill : "");
   const [wifi, setWifi] = useState({ ssid: "", password: "", encryption: "WPA", hidden: false });
   const [vcard, setVcard] = useState({ name: "", phone: "", email: "", org: "" });
   const [fg, setFg] = useState("#0f172a");

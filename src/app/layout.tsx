@@ -4,6 +4,7 @@ import "react-day-picker/style.css";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CommandBar from "@/components/CommandBar";
 import { SITE } from "@/lib/tools";
 
 const inter = Inter({
@@ -66,6 +67,7 @@ export default function RootLayout({
       </head>
       <body className="flex min-h-full flex-col">
         <Header />
+        <CommandBar />
         <main className="flex-1">{children}</main>
         <Footer />
       </body>

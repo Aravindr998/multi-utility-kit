@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState, type ReactNode } from "react";
+import { readParam } from "@/lib/toolParams";
 
 function counts(s: string) {
   return {
@@ -33,7 +34,8 @@ export default function TextToolShell({
   monospace = false,
   downloadName = "output.txt",
 }: Props) {
-  const [input, setInput] = useState(initial);
+  // Seed from a command-bar deep link (?text=…) on first render, else `initial`.
+  const [input, setInput] = useState(() => readParam("text") ?? initial);
   const [copied, setCopied] = useState(false);
 
   const output = useMemo(() => {

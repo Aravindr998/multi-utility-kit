@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { readParam } from "@/lib/toolParams";
 
 function fmtTime(totalSeconds: number): string {
   if (totalSeconds < 1) return "0 sec";
@@ -11,7 +12,7 @@ function fmtTime(totalSeconds: number): string {
 }
 
 export default function WordCounter() {
-  const [text, setText] = useState("");
+  const [text, setText] = useState(() => readParam("text") ?? "");
 
   const stats = useMemo(() => {
     const trimmed = text.trim();
