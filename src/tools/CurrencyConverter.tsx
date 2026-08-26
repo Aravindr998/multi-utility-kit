@@ -13,15 +13,31 @@ function currencyName(code: string): string {
   }
 }
 
+/** Read command-bar deep-link params (?amount=&from=&to=) on first render. */
+function initialFromUrl(): { amount?: string; from?: string; to?: string } {
+  if (typeof window === "undefined") return {};
+  const p = new URLSearchParams(window.location.search);
+  const out: { amount?: string; from?: string; to?: string } = {};
+  const amount = p.get("amount");
+  const from = p.get("from");
+  const to = p.get("to");
+  if (amount && !isNaN(parseFloat(amount))) out.amount = amount;
+  if (from && /^[A-Za-z]{3}$/.test(from)) out.from = from.toUpperCase();
+  if (to && /^[A-Za-z]{3}$/.test(to)) out.to = to.toUpperCase();
+  return out;
+}
+
 export default function CurrencyConverter() {
   const [rates, setRates] = useState<Record<string, number> | null>(null);
   const [updated, setUpdated] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const [amount, setAmount] = useState("100");
-  const [from, setFrom] = useState("USD");
-  const [to, setTo] = useState("EUR");
+  // Seed from a command-bar deep link (?amount=&from=&to=) when present.
+  const seed = initialFromUrl();
+  const [amount, setAmount] = useState(seed.amount ?? "100");
+  const [from, setFrom] = useState(seed.from ?? "USD");
+  const [to, setTo] = useState(seed.to ?? "EUR");
 
   useEffect(() => {
     let cancelled = false;

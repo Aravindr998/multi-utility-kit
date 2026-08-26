@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { readParam } from "@/lib/toolParams";
 
 const toTitle = (s: string) =>
   s.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase());
@@ -37,7 +38,7 @@ const CASES: { label: string; fn: (s: string) => string }[] = [
 ];
 
 export default function CaseConverter() {
-  const [text, setText] = useState("");
+  const [text, setText] = useState(() => readParam("text") ?? "");
   const [copied, setCopied] = useState<string | null>(null);
 
   const apply = (fn: (s: string) => string) => setText(fn(text));
