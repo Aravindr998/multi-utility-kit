@@ -7,26 +7,31 @@ import type { Intent } from "@/lib/intents";
 
 /**
  * Global Spotlight-style command bar.
- * ⌘K / Ctrl+K opens it anywhere. Type to search tools or run a quick command
- * ("convert 10 usd to inr", "count words in …", "generate uuid", "make qr for …").
- * Intents can compute their answer inline; Enter opens the tool pre-filled.
+ * ⌘K / Ctrl+K opens it anywhere. Type to search tools, convert units/currency,
+ * run a quick calculation, or generate things ("generate uuid", "make qr …").
+ *
+ * A "direct result" row (one that computes an answer inline) copies that answer
+ * on Enter; a tool row navigates to the tool (pre-filled where possible).
  */
 export default function CommandBar() {
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [active, setActive] = useState(0);
+  const [copiedId, setCopiedId] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
+  // Computed inline results, keyed by intent id, so Enter copies what's shown.
+  const computed = useRef<Map<string, string>>(new Map());
 
   const results = useMemo(() => parseCommand(query), [query]);
-  // Clamp during render so the highlight never points past the list.
   const activeIndex = results.length ? Math.min(active, results.length - 1) : 0;
 
   const close = useCallback(() => {
     setOpen(false);
     setQuery("");
     setActive(0);
+    setCopiedId(null);
   }, []);
 
   // Global open shortcut + Escape to close.
@@ -55,13 +60,27 @@ export default function CommandBar() {
     };
   }, [open]);
 
+  const flashCopied = useCallback((id: string, value: string) => {
+    navigator.clipboard?.writeText(value).catch(() => {});
+    setCopiedId(id);
+    window.setTimeout(() => setCopiedId((c) => (c === id ? null : c)), 1400);
+  }, []);
+
   const run = useCallback(
     (result: CommandResult | undefined) => {
       if (!result) return;
+      // Direct result → copy the computed value (stay open to show feedback).
+      if (result.kind === "intent" && result.compute) {
+        const value = computed.current.get(result.id);
+        if (value != null) {
+          flashCopied(result.id, value);
+          return;
+        }
+      }
       close();
       router.push(result.href);
     },
-    [router, close]
+    [router, close, flashCopied]
   );
 
   const onInputKeyDown = (e: React.KeyboardEvent) => {
@@ -70,9 +89,7 @@ export default function CommandBar() {
       setActive((a) => (results.length ? (a + 1) % results.length : 0));
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
-      setActive((a) =>
-        results.length ? (a - 1 + results.length) % results.length : 0
-      );
+      setActive((a) => (results.length ? (a - 1 + results.length) % results.length : 0));
     } else if (e.key === "Enter") {
       e.preventDefault();
       run(results[activeIndex]);
@@ -118,8 +135,9 @@ export default function CommandBar() {
               setActive(0);
             }}
             onKeyDown={onInputKeyDown}
-            placeholder="Search tools or try “convert 10 usd to inr”…"
-            className="flex-1 bg-transparent py-4 text-base outline-none placeholder:text-[var(--faint)]"
+            placeholder="Search tools, or try “10 cm to inch”, “2+2*3”, “generate uuid”…"
+            className="flex-1 border-0 bg-transparent py-4 text-base placeholder:text-[var(--faint)]"
+            style={{ outline: "none", boxShadow: "none" }}
             aria-label="Search tools or run a command"
             autoComplete="off"
             spellCheck={false}
@@ -147,6 +165,11 @@ export default function CommandBar() {
                 result={r}
                 index={i}
                 active={i === activeIndex}
+                copied={copiedId === r.id}
+                onResult={(id, val) => {
+                  if (val == null) computed.current.delete(id);
+                  else computed.current.set(id, val);
+                }}
                 onHover={() => setActive(i)}
                 onClick={() => run(r)}
               />
@@ -162,15 +185,20 @@ function ResultRow({
   result,
   index,
   active,
+  copied,
+  onResult,
   onHover,
   onClick,
 }: {
   result: CommandResult;
   index: number;
   active: boolean;
+  copied: boolean;
+  onResult: (id: string, value: string | null) => void;
   onHover: () => void;
   onClick: () => void;
 }) {
+  const isCopyable = result.kind === "intent" && !!result.compute;
   return (
     <button
       data-index={index}
@@ -188,7 +216,7 @@ function ResultRow({
       </span>
 
       {result.kind === "intent" ? (
-        <IntentBody intent={result} />
+        <IntentBody intent={result} onResult={onResult} />
       ) : (
         <span className="min-w-0 flex-1">
           <span className="block truncate font-medium">{result.tool.name}</span>
@@ -198,37 +226,49 @@ function ResultRow({
         </span>
       )}
 
-      <Enter active={active} />
+      <Hint active={active} copied={copied} action={isCopyable ? "copy" : "open"} />
     </button>
   );
 }
 
 /** Renders an intent's title + inline computed result (sync or async). */
-function IntentBody({ intent }: { intent: Intent }) {
+function IntentBody({
+  intent,
+  onResult,
+}: {
+  intent: Intent;
+  onResult: (id: string, value: string | null) => void;
+}) {
   const [output, setOutput] = useState<string | null>(null);
   const [state, setState] = useState<"idle" | "loading" | "ready" | "error">(
     intent.compute ? "loading" : "idle"
   );
 
   useEffect(() => {
-    // No inline compute → stays "idle" (its initial value); nothing to run.
-    if (!intent.compute) return;
+    if (!intent.compute) return; // navigate-only intent; nothing to compute
     let cancelled = false;
     Promise.resolve()
       .then(() => intent.compute!())
       .then((val) => {
         if (cancelled) return;
-        if (val == null) setState("error");
-        else {
+        if (val == null) {
+          setState("error");
+          onResult(intent.id, null);
+        } else {
           setOutput(val);
           setState("ready");
+          onResult(intent.id, val);
         }
       })
-      .catch(() => !cancelled && setState("error"));
+      .catch(() => {
+        if (cancelled) return;
+        setState("error");
+        onResult(intent.id, null);
+      });
     return () => {
       cancelled = true;
     };
-    // id captures the specific parsed instance (amount, text, etc.)
+    // id encodes the parsed inputs (amount, text, expression, …)
   }, [intent.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
@@ -245,30 +285,48 @@ function IntentBody({ intent }: { intent: Intent }) {
   );
 }
 
+function Hint({
+  active,
+  copied,
+  action,
+}: {
+  active: boolean;
+  copied: boolean;
+  action: "copy" | "open";
+}) {
+  if (copied) {
+    return (
+      <span className="shrink-0 text-xs font-medium" style={{ color: "var(--brand)" }}>
+        Copied ✓
+      </span>
+    );
+  }
+  if (!active) return null;
+  return (
+    <span className="flex shrink-0 items-center gap-1 text-xs text-[var(--muted)]">
+      <kbd
+        className="rounded border px-1.5 py-0.5"
+        style={{ background: "var(--surface)", borderColor: "var(--border-strong)" }}
+      >
+        ↵
+      </kbd>
+      {action === "copy" ? "copy" : "open"}
+    </span>
+  );
+}
+
 function EmptyHint() {
   return (
     <div className="px-3 py-6 text-sm text-[var(--muted)]">
       <p className="mb-2 font-medium text-[var(--foreground)]">Try typing…</p>
       <ul className="space-y-1.5">
         <li>🔎 A tool — “compress”, “qr code”, “word count”</li>
-        <li>💱 “convert 10 usd to inr”</li>
-        <li>📐 “resize image to 1080p”</li>
+        <li>📏 “10 cm to inch” · 💱 “convert 10 usd to inr”</li>
+        <li>🧮 “2+2*3” · “sqrt(144)” · “20% of 150”</li>
         <li>🆔 “generate uuid” · 🔳 “make qr for https://…”</li>
-        <li>⌨️ ↑↓ to navigate · <kbd className="font-sans">Enter</kbd> to open</li>
+        <li>⌨️ ↑↓ to navigate · <kbd className="font-sans">Enter</kbd> to run</li>
       </ul>
     </div>
-  );
-}
-
-function Enter({ active }: { active: boolean }) {
-  if (!active) return null;
-  return (
-    <kbd
-      className="shrink-0 rounded border px-1.5 py-0.5 text-xs text-[var(--muted)]"
-      style={{ background: "var(--surface)", borderColor: "var(--border-strong)" }}
-    >
-      ↵
-    </kbd>
   );
 }
 

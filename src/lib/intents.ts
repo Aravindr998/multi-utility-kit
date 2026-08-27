@@ -10,6 +10,8 @@
 // ---------------------------------------------------------------------------
 
 import { parseCurrencyQuery, getRates, convertAmount } from "@/lib/currency";
+import { parseUnitQuery } from "@/lib/units";
+import { evalMath, looksLikeMath } from "@/lib/mathEval";
 import { getTool } from "@/lib/tools";
 
 export type Intent = {
@@ -20,11 +22,14 @@ export type Intent = {
   title: string;
   /** Secondary line — usually the tool being opened. */
   subtitle: string;
-  /** Deep link opened on Enter (tool pre-filled via query params). */
+  /** Deep link opened when the tool is chosen (tool pre-filled via params). */
   href: string;
+  /** Associated tool, surfaced as a companion "Open …" row for compute intents. */
+  toolSlug?: string;
   /**
    * Optional inline result. Runs the tool's logic right in the palette so the
    * answer shows without navigating. May be async (e.g. live rates, hashing).
+   * When present, the primary action on this row is COPY (not navigate).
    * Throwing / returning null renders as "—".
    */
   compute?: () => string | null | Promise<string | null>;
@@ -111,6 +116,38 @@ function parseResize(spec: string): { w?: number; h?: number } | null {
 // --- Matchers --------------------------------------------------------------
 
 const INTENT_MATCHERS: Matcher[] = [
+  // Unit conversion — length, weight, temperature, speed, area, volume, data, time.
+  (q) => {
+    const u = parseUnitQuery(q);
+    if (!u || !getTool("unit-converter")) return null;
+    return {
+      kind: "intent",
+      id: `unit:${u.value}:${u.from}:${u.to}`,
+      icon: "📏",
+      title: `${u.value.toLocaleString()} ${u.from} → ${u.to}`,
+      subtitle: `Open ${toolLabel("unit-converter")}`,
+      href: "/tools/unit-converter",
+      toolSlug: "unit-converter",
+      compute: () => u.result,
+    };
+  },
+
+  // Arithmetic — "2+2*3", "sqrt(144)", "(5+3)/2 ^ 2".
+  (q) => {
+    if (!looksLikeMath(q)) return null;
+    const v = evalMath(q);
+    if (v == null) return null;
+    return {
+      kind: "intent",
+      id: `math:${q.trim()}`,
+      icon: "🧮",
+      title: q.trim(),
+      subtitle: "Calculation",
+      href: "/tools/percentage-calculator",
+      compute: () => v.toLocaleString(undefined, { maximumFractionDigits: 10 }),
+    };
+  },
+
   // Currency — inline result from live rates.
   (q) => {
     const cur = parseCurrencyQuery(q);
@@ -122,6 +159,7 @@ const INTENT_MATCHERS: Matcher[] = [
       title: `${cur.amount.toLocaleString()} ${cur.from} → ${cur.to}`,
       subtitle: `Open ${toolLabel("currency-converter")}`,
       href: `/tools/currency-converter?amount=${cur.amount}&from=${cur.from}&to=${cur.to}`,
+      toolSlug: "currency-converter",
       compute: async () => {
         const { rates } = await getRates();
         const v = convertAmount(cur.amount, cur.from, cur.to, rates);
@@ -144,6 +182,7 @@ const INTENT_MATCHERS: Matcher[] = [
       title: "Generate UUID",
       subtitle: `Open ${toolLabel("uuid-generator")}`,
       href: "/tools/uuid-generator",
+      toolSlug: "uuid-generator",
       compute: () => crypto.randomUUID(),
     };
   },
@@ -160,6 +199,7 @@ const INTENT_MATCHERS: Matcher[] = [
       title: `Generate ${len}-character password`,
       subtitle: `Open ${toolLabel("random-password")}`,
       href: "/tools/random-password",
+      toolSlug: "random-password",
       compute: () => randomPassword(len),
     };
   },
@@ -178,6 +218,7 @@ const INTENT_MATCHERS: Matcher[] = [
       title: text ? `Count words in “${truncate(text, 32)}”` : "Word Counter",
       subtitle: `Open ${toolLabel("word-counter")}`,
       href: text ? withText("word-counter", text) : "/tools/word-counter",
+      toolSlug: "word-counter",
       compute: text
         ? () => {
             const words = text.split(/\s+/).filter(Boolean).length;
@@ -218,6 +259,7 @@ const INTENT_MATCHERS: Matcher[] = [
       title: `Base64 ${dir} “${truncate(text, 32)}”`,
       subtitle: `Open ${toolLabel("base64")}`,
       href: withText("base64", text),
+      toolSlug: "base64",
       compute: () => (dir === "encode" ? base64Encode(text) : base64Decode(text)),
     };
   },
@@ -235,6 +277,7 @@ const INTENT_MATCHERS: Matcher[] = [
       title: `URL ${dir} “${truncate(text, 32)}”`,
       subtitle: `Open ${toolLabel("url-encode")}`,
       href: withText("url-encode", text),
+      toolSlug: "url-encode",
       compute: () =>
         dir === "encode" ? encodeURIComponent(text) : decodeURIComponent(text),
     };
@@ -252,6 +295,7 @@ const INTENT_MATCHERS: Matcher[] = [
       title: `Slugify “${truncate(text, 32)}”`,
       subtitle: `Open ${toolLabel("slug-generator")}`,
       href: withText("slug-generator", text),
+      toolSlug: "slug-generator",
       compute: () => slugify(text) || null,
     };
   },
@@ -276,6 +320,7 @@ const INTENT_MATCHERS: Matcher[] = [
       title: `${caseName} “${truncate(text, 28)}”`,
       subtitle: `Open ${toolLabel("case-converter")}`,
       href: withText("case-converter", text),
+      toolSlug: "case-converter",
       compute: () => fn(text),
     };
   },
@@ -304,6 +349,7 @@ const INTENT_MATCHERS: Matcher[] = [
       title: `${algoRaw.toUpperCase()} of “${truncate(text, 28)}”`,
       subtitle: `Open ${toolLabel(slug)}`,
       href: withText(slug, text),
+      toolSlug: slug,
       compute: webAlgo ? () => sha(webAlgo, text) : undefined,
     };
   },
@@ -344,6 +390,7 @@ const INTENT_MATCHERS: Matcher[] = [
       title: `${p}% of ${n.toLocaleString()}`,
       subtitle: `Open ${toolLabel("percentage-calculator")}`,
       href: "/tools/percentage-calculator",
+      toolSlug: "percentage-calculator",
       compute: () => ((p / 100) * n).toLocaleString(undefined, { maximumFractionDigits: 4 }),
     };
   },
