@@ -4,7 +4,7 @@
 // can compute or pre-fill) first, then fuzzy tool matches from the registry.
 // ---------------------------------------------------------------------------
 
-import { AVAILABLE_TOOLS, type Tool } from "@/lib/tools";
+import { AVAILABLE_TOOLS, getTool, type Tool } from "@/lib/tools";
 import { matchIntents, type Intent } from "@/lib/intents";
 
 export type ToolResult = {
@@ -46,6 +46,10 @@ function isSubsequence(needle: string, haystack: string): boolean {
   return i === needle.length;
 }
 
+function toolResult(tool: Tool): ToolResult {
+  return { kind: "tool", id: `tool:${tool.slug}`, tool, href: `/tools/${tool.slug}` };
+}
+
 export function searchTools(query: string, limit = 6): ToolResult[] {
   const q = query.trim().toLowerCase();
   if (!q) return [];
@@ -54,15 +58,36 @@ export function searchTools(query: string, limit = 6): ToolResult[] {
     .filter((r) => r.score > 0)
     .sort((a, b) => b.score - a.score || a.tool.name.localeCompare(b.tool.name))
     .slice(0, limit)
-    .map(({ tool }) => ({
-      kind: "tool" as const,
-      id: `tool:${tool.slug}`,
-      tool,
-      href: `/tools/${tool.slug}`,
-    }));
+    .map(({ tool }) => toolResult(tool));
 }
 
-/** Build the full, ordered result list for a query. */
+/**
+ * Build the full, ordered result list: each compute intent (direct result)
+ * followed by its companion tool row, then remaining fuzzy tool matches —
+ * with tools de-duplicated so a companion never repeats below.
+ */
 export function parseCommand(query: string): CommandResult[] {
-  return [...matchIntents(query), ...searchTools(query)];
+  const out: CommandResult[] = [];
+  const usedTools = new Set<string>();
+
+  for (const intent of matchIntents(query)) {
+    out.push(intent);
+    // A compute intent copies its result on Enter; surface the tool separately.
+    if (intent.compute && intent.toolSlug && !usedTools.has(intent.toolSlug)) {
+      const tool = getTool(intent.toolSlug);
+      if (tool?.available) {
+        out.push(toolResult(tool));
+        usedTools.add(tool.slug);
+      }
+    }
+  }
+
+  for (const t of searchTools(query, 8)) {
+    if (!usedTools.has(t.tool.slug)) {
+      out.push(t);
+      usedTools.add(t.tool.slug);
+    }
+  }
+
+  return out;
 }
